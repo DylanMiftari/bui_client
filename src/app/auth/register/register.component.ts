@@ -5,11 +5,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css', '../../../assets/style/form.css']
 })
 export class RegisterComponent {
   pseudo: string = '';
   password: string = '';
+
+  formError: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 

@@ -5,11 +5,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css', '../../../assets/style/form.css'],
 })
 export class LoginComponent {
   pseudo: string = '';
   password: string = '';
+
+  formError: string = "";
 
   constructor(private authService: AuthService, private router: Router) { }
 

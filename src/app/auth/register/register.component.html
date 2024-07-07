@@ -1,14 +1,21 @@
 <div>
-    <h2>Register</h2>
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()" class="center column">
+      <h2>Création de compte</h2>
       <div>
         <label for="pseudo">Pseudo</label>
-        <input type="text" id="pseudo" [(ngModel)]="pseudo" name="pseudo" required>
+        <input type="text" id="pseudo" [(ngModel)]="pseudo" name="pseudo" required placeholder="Pseudo">
       </div>
       <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de passe">
       </div>
-      <button type="submit">Register</button>
+
+      <p class="error">{{ formError }}</p>
+
+      <div class="button-container">
+        <input type="submit" value="Créer mon compte">
+      </div>
+
+      <p class="link">Vous avez déjà un compte : <a [routerLink]="['/login']">Connectez vous !</a></p>
     </form>
   </div>

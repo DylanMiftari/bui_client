@@ -1,14 +1,21 @@
 <div>
-    <h2>Login</h2>
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()" class="center column">
+      <h2>Se connecter</h2>
       <div>
         <label for="pseudo">Pseudo</label>
-        <input type="text" id="pseudo" [(ngModel)]="pseudo" name="pseudo" required>
+        <input type="text" id="pseudo" [(ngModel)]="pseudo" name="pseudo" required placeholder="Pseudo" autocomplete="off">
       </div>
       <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" required>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de passe">
       </div>
-      <button type="submit">Login</button>
+
+      <p class="error">{{ formError }}</p>
+
+      <div class="button-container">
+        <input type="submit" value="Connexion">
+      </div>
+
+      <p class="link">Vous n'avez pas de compte : <a [routerLink]="['/register']">Créé en un !</a></p>
     </form>
   </div>

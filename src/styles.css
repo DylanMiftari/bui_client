@@ -1,10 +1,37 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
+
+:root {
+    --blue-color: #45C1EC;
+    --light-grey-color: #A1A0A4;
+    --dark-blue-grey: #182c4d;
+    --middle-light-grey: #E3E7EE;
+    --darker-light-grey: #C4CBD5;
+    --darkest-light-grey: #959ba3;
+    --error-color: #b00000;
+  }
 
 html {
     background-image: repeating-linear-gradient(45deg, #45c2ec1a 0, #45c2ec1a 4px, transparent 0, transparent 50%);
     background-size: 50px 50px;
     background-color: #e5e5f7;
+}
+
+
+/*
+HEADER
+*/
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: #78c971;
+    color: var(--dark-blue-grey);
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
