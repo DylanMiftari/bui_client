@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: repeating-linear-gradient(45deg, #45c2ec1a 0, #45c2ec1a 4px, transparent 0, transparent 50%);
+    background-size: 50px 50px;
+    background-color: #e5e5f7;
+}
