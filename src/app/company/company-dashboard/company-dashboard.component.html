@@ -1,0 +1,16 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<div class="explain">
+    <h1>Mes entreprises</h1>
+    <p>
+        Vous êtes sur la page de vous entreprises. Ici vous pouvez voir vous entreprises ou en créer une nouvelle.
+        Vous pouvez créer jusqu'à {{sharedData.maxCompaniesPerPlayer}} entreprises
+    </p>
+</div>
+
+
+
+<div class="card" *ngIf="!hasMaxCompanies">
+    <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
+    <h1>Créer une entreprise</h1>
+</div>

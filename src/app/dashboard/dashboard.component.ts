@@ -9,15 +9,6 @@ import { Player } from '../player/player.model';
 })
 export class DashboardComponent {
 
-  public player: Player | undefined;
-
-  constructor(private playerService: PlayerService) {
-    this.playerService.getUser().subscribe(
-      response => {
-        this.player = response;
-        console.log(response);
-      }
-    );
-  }
+  
   
 }

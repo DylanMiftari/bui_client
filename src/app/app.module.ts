@@ -11,6 +11,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { PlayerMoneyComponent } from './player/player-money/player-money.component';
+import { CompanyDashboardComponent } from './company/company-dashboard/company-dashboard.component';
+import { ConnectedDashboardComponent } from './connected-dashboard/connected-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PlayerMoneyComponent } from './player/player-money/player-money.compone
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    PlayerMoneyComponent
+    PlayerMoneyComponent,
+    CompanyDashboardComponent,
+    ConnectedDashboardComponent
   ],
   imports: [
     BrowserModule,

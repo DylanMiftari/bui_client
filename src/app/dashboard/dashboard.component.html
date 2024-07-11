@@ -1,10 +1,7 @@
-<div>
-    <p>{{player?.pseudo}}</p>
-    <app-player-money [money]="player?.playerMoney"></app-player-money>
-</div>
+<app-connected-dashboard></app-connected-dashboard>
 
 <div class="card-container">
-    <div class="card">
+    <div class="card" [routerLink]="['/company/dashboard']">
         <h1>Mes Entreprises</h1>
         <img src="../../assets/images/icon/corporation.png" alt="Image d'entreprise">
     </div>
@@ -15,5 +12,17 @@
     <div class="card">
         <h1>Ma Ville</h1>
         <img src="../../assets/images/icon/city.png" alt="Image d'entreprise">
+    </div>
+    <div class="card">
+        <h1>Ma Maison</h1>
+        <img src="../../assets/images/icon/house.png" alt="Image d'entreprise">
+    </div>
+    <div class="card">
+        <h1>Marché</h1>
+        <img src="../../assets/images/icon/market.png" alt="Image d'entreprise">
+    </div>
+    <div class="card">
+        <h1>Place Public</h1>
+        <img src="../../assets/images/icon/public.png" alt="Image d'entreprise">
     </div>
 </div>
