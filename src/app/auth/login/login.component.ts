@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { BuiServiceService } from '../../bui-service.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
 
   formError: string = "";
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private buiService: BuiServiceService) { }
 
   login() {
     this.authService.login({ pseudo: this.pseudo, password: this.password }).subscribe(
@@ -22,7 +23,7 @@ export class LoginComponent {
         this.router.navigate(['/dashboard']); // Redirige l'utilisateur
       },
       error => {
-        console.error('Login error:', error);
+        this.formError = this.buiService.extractErrorMessage(error);
       }
     );
   }

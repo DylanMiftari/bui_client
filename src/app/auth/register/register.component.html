@@ -9,6 +9,10 @@
         <label for="password">Mot de passe</label>
         <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Mot de passe">
       </div>
+      <div>
+        <label for="password_confirmation">Confirmation du mot de passe</label>
+        <input type="password" id="password_confirmation" [(ngModel)]="password_confirmation" name="password" required placeholder="Confirmation du mot de passe">
+      </div>
 
       <p class="error">{{ formError }}</p>
 
