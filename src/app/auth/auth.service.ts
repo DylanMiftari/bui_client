@@ -1,15 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SharedDataService } from '../shared-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://127.0.0.1:8000/'; // Changez cela en fonction de votre API
+  private baseUrl = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sharedData: SharedDataService) {
+    this.baseUrl = sharedData.baseUrl;
+  }
 
   register(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}auth/register`, user);

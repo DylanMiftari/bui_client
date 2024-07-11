@@ -1,0 +1,12 @@
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    app-player-money {
+        font-size: 1.3em;
+    }
+}

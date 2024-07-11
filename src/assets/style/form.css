@@ -43,8 +43,11 @@ Center form : A big form in the middle of the page
 */
 form.center {
     margin: 50px auto;
-    margin-top: 20vh;
+    margin-top: 10vh;
     width: 90%;
+    div {
+        margin: 15px 0;
+    }
     h2 {
         color: var(--light-grey-color);
         text-align: center;
@@ -60,6 +63,7 @@ form.center {
         width: 90%;
         min-width: 250px;
         transition: border-color 0.2s linear;
+        padding: 10px 5px;
     }
     input:focus {
         outline: none;
@@ -69,6 +73,7 @@ form.center {
         width: 90%;
         min-width: 300px;
         font-size: 1.2em;
+        margin-top: 25px;
     }
 }
 

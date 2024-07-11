@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<div>
+    <p>{{player?.pseudo}}</p>
+    <app-player-money [money]="player?.playerMoney"></app-player-money>
+</div>
+
+<div class="card-container">
+    <div class="card">
+        <h1>Mes Entreprises</h1>
+        <img src="../../assets/images/icon/corporation.png" alt="Image d'entreprise">
+    </div>
+    <div class="card">
+        <h1>Mes Mines</h1>
+        <img src="../../assets/images/icon/mine.png" alt="Image d'entreprise">
+    </div>
+    <div class="card">
+        <h1>Ma Ville</h1>
+        <img src="../../assets/images/icon/city.png" alt="Image d'entreprise">
+    </div>
+</div>
