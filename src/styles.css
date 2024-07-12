@@ -54,3 +54,11 @@ div.explain {
         font-size: 1em;
     }
 }
+
+/*
+UTILS CLASS
+*/
+
+.pointer {
+    cursor: pointer;
+}
