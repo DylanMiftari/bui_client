@@ -19,7 +19,7 @@
         <app-security-card *ngSwitchCase="'security'" [company]="company"></app-security-card>
     </div>
 
-    <div class="card" *ngIf="!appData.playerData?.has_full_companies">
+    <div class="card" *ngIf="!appData.playerData?.has_full_companies" [routerLink]="['/company/create']">
         <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
         <h1>Créer une entreprise</h1>
     </div>

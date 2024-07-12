@@ -19,6 +19,7 @@ import { MafiaCardComponent } from './company/company-card/mafia-card/mafia-card
 import { EstateCardComponent } from './company/company-card/estate-card/estate-card.component';
 import { FactoryCardComponent } from './company/company-card/factory-card/factory-card.component';
 import { SecurityCardComponent } from './company/company-card/security-card/security-card.component';
+import { CreateCompanyComponent } from './company/create-company/create-company.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SecurityCardComponent } from './company/company-card/security-card/secu
     MafiaCardComponent,
     EstateCardComponent,
     FactoryCardComponent,
-    SecurityCardComponent
+    SecurityCardComponent,
+    CreateCompanyComponent
   ],
   imports: [
     BrowserModule,
