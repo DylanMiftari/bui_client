@@ -9,8 +9,18 @@
 </div>
 
 
+<div class="card-container">
+    <div *ngFor="let company of appData.playerData?.companies" [ngSwitch]="company.company_type">
+        <app-bank-card *ngSwitchCase="'bank'" [company]="company"></app-bank-card>
+        <app-casino-card *ngSwitchCase="'casino'" [company]="company"></app-casino-card>
+        <app-estate-card *ngSwitchCase="'estate_agency'" [company]="company"></app-estate-card>
+        <app-factory-card *ngSwitchCase="'factory'" [company]="company"></app-factory-card>
+        <app-mafia-card *ngSwitchCase="'mafia'" [company]="company"></app-mafia-card>
+        <app-security-card *ngSwitchCase="'security'" [company]="company"></app-security-card>
+    </div>
 
-<div class="card" *ngIf="!hasMaxCompanies">
-    <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
-    <h1>Créer une entreprise</h1>
+    <div class="card" *ngIf="!appData.playerData?.has_full_companies">
+        <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
+        <h1>Créer une entreprise</h1>
+    </div>
 </div>

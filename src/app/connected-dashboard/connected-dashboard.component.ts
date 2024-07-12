@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PlayerService } from '../player/player.service';
 import { Player } from '../player/player.model';
+import { AppDataService } from '../app-data.service';
 
 @Component({
   selector: 'app-connected-dashboard',
@@ -8,13 +9,7 @@ import { Player } from '../player/player.model';
   styleUrl: './connected-dashboard.component.css'
 })
 export class ConnectedDashboardComponent {
-  public player: Player | undefined;
 
-  constructor(private playerService: PlayerService) {
-    this.playerService.getUser().subscribe(
-      response => {
-        this.player = response;
-      }
-    );
+  constructor(public appData: AppDataService) {
   }
 }

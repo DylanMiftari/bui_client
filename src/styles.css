@@ -27,6 +27,8 @@ HEADER
 header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background-color: #78c971;
     color: var(--dark-blue-grey);
     div {
