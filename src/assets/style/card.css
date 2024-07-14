@@ -38,6 +38,10 @@ div.card {
         max-width: 100px;
     }
 }
+div.disable {
+    cursor: default;
+    opacity: 0.6;
+}
 div.card:hover {
     transform: scale(1.1);
 }

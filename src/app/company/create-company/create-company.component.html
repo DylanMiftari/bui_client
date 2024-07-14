@@ -1,1 +1,69 @@
-<p>create-company works!</p>
+<app-connected-dashboard></app-connected-dashboard>
+<h1>Créer votre entreprise :</h1>
+
+<form class="center column">
+    <div>
+        <label for="name">Nom de l'entreprise</label>
+        <input type="text" name="name" id="name" placeholder="Nom de l'entreprise" [(ngModel)]="companyData.name" autocomplete="off">
+    </div>
+
+    <div>
+        <label for="type">Type d'entreprise</label>
+        <select name="type" id="type" [(ngModel)]="companyData.company_type">
+            <option value="">--- Séléctionnez un type ---</option>
+            <option *ngFor="let item of sharedData.sharedData?.companyTypes| keyvalue" [value]="item.key">{{item.value}}</option>
+        </select>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'bank'">
+        <h2>Banque</h2>
+        <ul>
+            <li>Permettez aux joueurs d'ouvrir un compte chez vous pour y stocker de l'argent et de ressources</li>
+            <li>Accordez des prêts aux joueurs, qu'ils devront rembourser petit à petit</li>
+        </ul>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'casino'">
+        <h2>Casino</h2>
+        <ul>
+            <li>Mettez à disposition des jeux de hasards pour vos joueurs</li>
+            <li>À partir du niveau 3, vendez des tickets VIP à vos joueurs</li>
+            <li>À partir du niveau 4, louer des suites à vos joueurs. Ils deviendront des Ultra VIP du casino</li>
+        </ul>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'estate_agency'">
+        <h2>Agence Immobilière</h2>
+        <ul>
+            <li>Construisez des maisons afin de les vendre ou de les faire louer</li>
+            <li>Les maisons louées vous rapporteront de l'argent chaque semaine</li>
+        </ul>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'factory'">
+        <h2>Usine</h2>
+        <ul>
+            <li>Avec vos machines produisez de nouveaux matériaux (non-minable)</li>
+            <li>Vendez ces matériaux à d'autres joueurs</li>
+            <li>Recevez des propositions d'achats de la part d'autres joueurs</li>
+        </ul>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'mafia'">
+        <h2>Mafia</h2>
+        <ul>
+            <li>Tentez de voler un joueur, une entreprise, une maison ou un compte bancaire, pour vos clients</li>
+            <li>Rater un vol peut coûter cher, faite payer assez à vos clients</li>
+            <li>Vous conserverez un certain pourcentage en cas de réussite</li>
+        </ul>
+    </div>
+
+    <div *ngIf="companyData.company_type === 'security'">
+        <h2>Agence de sécurité</h2>
+        <ul>
+            <li>Protégez vos clients de potentiels vols</li>
+            <li>Fabriquer des systèmes de sécurité et installer les chez vos clients</li>
+            <li>Recevez des demandes de protection de la part d'autres joueurs</li>
+        </ul>
+    </div>
+</form>

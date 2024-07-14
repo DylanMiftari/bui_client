@@ -3,6 +3,7 @@ import { Company } from '../company.model';
 import { CompanyService } from '../company.service';
 import { SharedDataService } from '../../shared-data.service';
 import { AppDataService } from '../../app-data.service';
+import { PlayerService } from '../../player/player.service';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -11,6 +12,6 @@ import { AppDataService } from '../../app-data.service';
 })
 export class CompanyDashboardComponent {
 
-  constructor(public appData: AppDataService, public sharedData: SharedDataService) {
+  constructor(public appData: AppDataService, public sharedData: SharedDataService, public playerService: PlayerService) {
   }
 }

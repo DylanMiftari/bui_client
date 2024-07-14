@@ -3,8 +3,7 @@
 <div class="explain">
     <h1>Mes entreprises</h1>
     <p>
-        Vous êtes sur la page de vos entreprises. Ici vous pouvez voir vos entreprises ou en créer une nouvelle.
-        Vous pouvez créer jusqu'à {{sharedData.maxCompaniesPerPlayer}} entreprises
+        Vous pouvez créer jusqu'à {{sharedData.maxCompaniesPerPlayer}} entreprises, possédant chacune 6 niveaux d'amélioration
     </p>
 </div>
 
@@ -19,8 +18,15 @@
         <app-security-card *ngSwitchCase="'security'" [company]="company"></app-security-card>
     </div>
 
-    <div class="card" *ngIf="!appData.playerData?.has_full_companies" [routerLink]="['/company/create']">
-        <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
+    <div class="card" *ngIf="!appData.playerData?.has_full_companies && playerService.checkMoney(sharedData.sharedData?.companyCreationPrice)" [routerLink]="['/company/create']">
         <h1>Créer une entreprise</h1>
+        <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
+        <app-player-money [money]="sharedData.sharedData?.companyCreationPrice"></app-player-money>
+    </div>
+    <div class="card disable" *ngIf="!appData.playerData?.has_full_companies && !playerService.checkMoney(sharedData.sharedData?.companyCreationPrice)">
+        <h1>Créer une entreprise</h1>
+        <img src="../../../assets/images/icon/add.png" alt="Image de création d'entreprise">
+        <app-player-money [money]="sharedData.sharedData?.companyCreationPrice"></app-player-money>
+        <p>Vous n'avez pas assez d'argent</p>
     </div>
 </div>

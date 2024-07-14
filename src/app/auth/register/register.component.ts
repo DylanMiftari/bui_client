@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { BuiServiceService } from '../../bui-service.service';
+import { AppDataService } from '../../app-data.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent {
 
   formError: string = '';
 
-  constructor(private authService: AuthService, private router: Router, private buiServive: BuiServiceService) { }
+  constructor(private authService: AuthService, private router: Router, private buiServive: BuiServiceService, private appDataService: AppDataService) { }
 
   register() {
     this.authService.register({
@@ -25,6 +26,7 @@ export class RegisterComponent {
     }).subscribe(
       response => {
         localStorage.setItem('token', response.token); // Stocke le token
+        this.appDataService.reloadData();
         this.router.navigate(['/dashboard']); // Redirige l'utilisateur
       },
       error => {

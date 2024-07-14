@@ -36,7 +36,7 @@ import { CreateCompanyComponent } from './company/create-company/create-company.
     EstateCardComponent,
     FactoryCardComponent,
     SecurityCardComponent,
-    CreateCompanyComponent
+    CreateCompanyComponent,
   ],
   imports: [
     BrowserModule,

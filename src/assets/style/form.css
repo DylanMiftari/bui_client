@@ -6,11 +6,17 @@ form {
     div {
         padding: 5px 0;
     }
-    input {
+    input, select {
         padding: 5px;
         border-radius: 20px;
         border: solid 1px var(--light-grey-color);
         margin: 5px auto;
+    }
+    select {
+        cursor: pointer;
+    }
+    option {
+        cursor: pointer;
     }
     input[type="submit"] {
         display: block;
@@ -36,6 +42,9 @@ form {
     p.error {
         color: var(--error-color);
     }
+    ul {
+        margin-left: 20px;
+    }
 }
 
 /*
@@ -58,14 +67,14 @@ form.center {
         font-size: 1.1em;
         font-weight: bold;
     }
-    input {
+    input, select {
         font-size: 1.1em;
         width: 90%;
         min-width: 250px;
         transition: border-color 0.2s linear;
         padding: 10px 5px;
     }
-    input:focus {
+    input:focus, select:focus {
         outline: none;
         border-color: var(--blue-color);
     }
