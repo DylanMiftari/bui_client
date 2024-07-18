@@ -5,6 +5,6 @@ export class AppData {
     constructor(
         public player: Player,
         public companies: Array<Company>,
-        public has_full_companies: boolean
+        public has_full_companies: boolean,
     ) {}
 }

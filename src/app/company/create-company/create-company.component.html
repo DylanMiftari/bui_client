@@ -1,7 +1,8 @@
 <app-connected-dashboard></app-connected-dashboard>
 <h1>Créer votre entreprise :</h1>
+<p>Certaines limites imposées, peuvent augmenter en améliorant votre entreprise</p>
 
-<form class="center column">
+<form class="center column" (ngSubmit)="createCompany()">
     <div>
         <label for="name">Nom de l'entreprise</label>
         <input type="text" name="name" id="name" placeholder="Nom de l'entreprise" [(ngModel)]="companyData.name" autocomplete="off">
@@ -21,6 +22,45 @@
             <li>Permettez aux joueurs d'ouvrir un compte chez vous pour y stocker de l'argent et de ressources</li>
             <li>Accordez des prêts aux joueurs, qu'ils devront rembourser petit à petit</li>
         </ul>
+
+        <div>
+            <label for="accountMaintenanceCost">Frais de tenu des comptes</label>
+            <input type="number" name="accountMaintenanceCost" [(ngModel)]="companyData.accountMaintenanceCost" id="accountMaintenanceCost" min="0" step="1000" placeholder="Frais de tenu des comptes par défaut">
+            <p>
+                Un compte en banque n'est pas gratuit, réglez les frais de tenu de compte hebdomadaire.<br>
+                <i>Ce paramètre sera, par la suite, réglable pour chaque client</i>
+            </p>
+        </div>
+
+        <div>
+            <label for="transferCost">Taux de transfert</label>
+            <input type="number" min="0" step="1" name="transferCost" id="transferCost" [(ngModel)]="companyData.transferCost">
+            <p>
+                Lors d'une transaction d'un compte bancaire, un certain pourcentage de la somme de la transaction sera directement pour vous.<br>
+                <i>Exemple : Sur une transaction de 100$ avec un taux à 2 %, le client payera 102$. 100 pour son paiement et 2 pour la banque</i><br>
+                <i>Ce paramètre sera, par la suite, réglable pour chaque client</i>
+            </p>
+        </div>
+
+        <div>
+            <label for="maxAccountMoney">Argent maximum par compte</label>
+            <input type="number" name="maxAccountMoney" id="maxAccountMoney" [(ngModel)]="companyData.maxAccountMoney" step="10000" min="0" [max]="sharedData.sharedData?.banklevel?.l1?.maxMoneyAccount ?? ''">
+            <p>
+                Les joueurs ne peuvent stocker qu'une quantité limitée d'argent, fixez une limite.<br>
+                <i>Ce paramètre sera, par la suite, réglable pour chaque client</i><br>
+                Max : {{ sharedData.sharedData?.banklevel?.l1?.maxMoneyAccount?.toLocaleString() }}
+            </p>
+        </div>
+
+        <div>
+            <label for="maxAccountResource">Ressources maximum par compte</label>
+            <input type="number" name="maxAccountResource" id="maxAccountResource" [(ngModel)]="companyData.maxAccountResource" step="2" min="0" [max]="sharedData.sharedData?.banklevel?.l1?.maxResourceAccount ?? ''">
+            <p>
+                Les joueurs ne peuvent stocker qu'une quantité limitée de ressource, fixez une limite (en kg).<br>
+                <i>Ce paramètre sera, par la suite, réglable pour chaque client</i><br>
+                Max : {{ sharedData.sharedData?.banklevel?.l1?.maxResourceAccount }}kg
+            </p>
+        </div>
     </div>
 
     <div *ngIf="companyData.company_type === 'casino'">
@@ -30,6 +70,47 @@
             <li>À partir du niveau 3, vendez des tickets VIP à vos joueurs</li>
             <li>À partir du niveau 4, louer des suites à vos joueurs. Ils deviendront des Ultra VIP du casino</li>
         </ul>
+
+        <div>
+            <label for="ticketPrice"></label>
+            <input type="number" name="ticketPrice" id="ticketPrice" [(ngModel)]="companyData.ticketPrice" step="25" min="0" [max]="sharedData.sharedData?.casinolevel?.l1?.maxTicketPrice ?? ''">
+            <p>
+                Pour jouer à vos jeux, les joueurs doivent posséder un ticket. Le ticket est valable une semaine.
+                Au niveau 1, seulement 10 joueurs peuvent posséder un ticket valable en même temps.<br>
+                Max : {{ sharedData.sharedData?.casinolevel?.l1?.maxTicketPrice?.toLocaleString() }}
+            </p>
+        </div>
+
+        <div>
+            <label for="rouletteSequenceMultiplicator">Multiplicateur en cas de séquence (roulette)</label>
+            <input type="number" min="0" step="1.5" [(ngModel)]="companyData.rouletteSequenceMultiplicator" name="rouletteSequenceMultiplicator" id="rouletteSequenceMultiplicator">
+            <p>
+                Au niveau 1, votre seul jeu est la roulette. En cas de séquence (123, 456, 987...), décidez du gain du joueur.<br>
+                En case de défaite du joueur : le casino gagnera la mise du joueur.<br>
+                En case de victoir du joueur : le joueur gagnera sa mise multiplié par ce facteur.
+            </p>
+        </div>
+
+        <div>
+            <label for="rouletteTripletMultiplicator">Multiplicateur en cas de triplet (roulette)</label>
+            <input type="number" min="0" step="3" [(ngModel)]="companyData.rouletteTripletMultiplicator" name="rouletteTripletMultiplicator" id="rouletteTripletMultiplicator">
+            <p>Multiplicateur en cas de triplet (111, 222...)</p>
+        </div>
+
+        <div>
+            <label for="rouletteTripleSeventMultiplicator">Multiplicateur en cas de triple 7 (roulette)</label>
+            <input type="number" min="0" step="5" [(ngModel)]="companyData.rouletteTripleSeventMultiplicator" name="rouletteTripleSeventMultiplicator" id="rouletteTripleSeventMultiplicator">
+            <p>Multiplicateur en cas de triple 7 (777)</p>
+        </div>
+
+        <div>
+            <label for="rouletteMaxBet">Mise maximal (roulette)</label>
+            <input type="number" min="0" step="150" [(ngModel)]="companyData.rouletteMaxBet" name="rouletteMaxBet" id="rouletteMaxBet" [max]="sharedData.sharedData?.casinolevel?.l1?.rouletteMaxBet ?? ''">
+            <p>
+                Les joueurs ne peuvent pas miser au tant qu'ils veulent pour une même partie. Définissez la limite.<br>
+                Max : {{ sharedData.sharedData?.casinolevel?.l1?.rouletteMaxBet?.toLocaleString() }}
+            </p>
+        </div>
     </div>
 
     <div *ngIf="companyData.company_type === 'estate_agency'">
@@ -65,5 +146,11 @@
             <li>Fabriquer des systèmes de sécurité et installer les chez vos clients</li>
             <li>Recevez des demandes de protection de la part d'autres joueurs</li>
         </ul>
+    </div>
+
+    <p class="error">{{ formError }}</p>
+
+    <div class="button-container">
+        <input type="submit" value="Créer">
     </div>
 </form>
