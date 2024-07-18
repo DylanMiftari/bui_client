@@ -3,31 +3,17 @@ import { Injectable } from '@angular/core';
 import { SharedDataService } from '../shared-data.service';
 import { Observable } from 'rxjs';
 import { AppData } from '../app-data.model';
+import { AppDataService } from '../app-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayerService {
 
-  private baseUrl = '';
-
-  private playerData: AppData | undefined;
-
-  constructor(private http: HttpClient, private sharedData: SharedDataService) {
-    this.baseUrl = sharedData.baseUrl;
-    this.getUser().subscribe(
-      response => {
-        this.playerData = response;
-      }
-    )
-  }
-
-  public getUser(): Observable<any> {
-    return this.http.get(`${this.baseUrl}api/me`);
-  }
+  constructor(private appData: AppDataService) {}
 
   public checkMoney(cost: number | undefined): boolean {
-    let totalMoney: number | undefined = this.playerData?.player.playerMoney;
+    let totalMoney: number | undefined = this.appData.playerData?.player.playerMoney;
     return totalMoney !== undefined && cost !== undefined && totalMoney >= cost;
   }
 }

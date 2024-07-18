@@ -16,5 +16,6 @@ export class SharedData {
         public estatelevel: EstateLevels,
         public factorylevel: FactoryLevels,
         public securitylevel: SecurityLevels,
+        public new_mine_prices: Array<number>
     ) {}
 }

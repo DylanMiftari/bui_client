@@ -1,0 +1,17 @@
+<app-connected-dashboard></app-connected-dashboard>
+<h1>Vos mines</h1>
+
+<div class="card-container">
+    <app-mine *ngFor="let mine of appData.playerData?.mines" [mine]="mine"></app-mine>
+
+    <div class="card" *ngIf="!appData.playerData?.has_full_mines && playerService.checkMoney(mineService.getNextMinePrice())" (click)="buyNewMine()">
+        <h1>Acheter une mine</h1>
+        <img src="../../../assets/images/icon/add.png" alt="Logo +">
+        <app-player-money [money]="mineService.getNextMinePrice()"></app-player-money>
+    </div>
+    <div class="card disable" *ngIf="!appData.playerData?.has_full_mines && !playerService.checkMoney(mineService.getNextMinePrice())">
+        <h1>Acheter une mine</h1>
+        <img src="../../../assets/images/icon/add.png" alt="Logo +">
+        <app-player-money [money]="mineService.getNextMinePrice()"></app-player-money>
+    </div>
+</div>

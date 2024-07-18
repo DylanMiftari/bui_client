@@ -20,6 +20,8 @@ import { EstateCardComponent } from './company/company-card/estate-card/estate-c
 import { FactoryCardComponent } from './company/company-card/factory-card/factory-card.component';
 import { SecurityCardComponent } from './company/company-card/security-card/security-card.component';
 import { CreateCompanyComponent } from './company/create-company/create-company.component';
+import { MinedashboardComponent } from './mine/minedashboard/minedashboard.component';
+import { MineComponent } from './mine/mine/mine.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { CreateCompanyComponent } from './company/create-company/create-company.
     FactoryCardComponent,
     SecurityCardComponent,
     CreateCompanyComponent,
+    MinedashboardComponent,
+    MineComponent,
   ],
   imports: [
     BrowserModule,
