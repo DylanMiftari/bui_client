@@ -3,4 +3,7 @@
     <h1>Mine n° {{ mine?.id }}</h1>
     <img src="../../../assets/images/icon/mine.png" alt="Image de mine">
     <h3>Niveau : {{ mine?.level }}</h3>
+    <p *ngIf="mine?.resource !== null">En cours : {{ mine?.resource?.name }}</p>
+    <p *ngIf="mine?.resource !== null && mine?.remainTimeInMinute! > 0">Temps restant : {{ mine?.remainTimeInMinute | remainTimeInMinute }}</p>
+    <p *ngIf="mine?.resource !== null && mine?.remainTimeInMinute! <= 0">Terminé</p>
 </div>

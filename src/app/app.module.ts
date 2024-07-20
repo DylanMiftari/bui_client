@@ -22,6 +22,7 @@ import { SecurityCardComponent } from './company/company-card/security-card/secu
 import { CreateCompanyComponent } from './company/create-company/create-company.component';
 import { MinedashboardComponent } from './mine/minedashboard/minedashboard.component';
 import { MineComponent } from './mine/mine/mine.component';
+import { RemainTimeInMinutePipe } from './mine/remain-time-in-minute.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MineComponent } from './mine/mine/mine.component';
     CreateCompanyComponent,
     MinedashboardComponent,
     MineComponent,
+    RemainTimeInMinutePipe,
   ],
   imports: [
     BrowserModule,
