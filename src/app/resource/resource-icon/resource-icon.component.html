@@ -1,0 +1,12 @@
+<span *ngIf="!cardStyle">
+    <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
+    <p *ngIf="withText">{{ resource?.name }}</p>
+</span>
+
+<span *ngIf="cardStyle" class="card">
+    <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
+    <p *ngIf="withText">{{ resource?.name }}</p>
+
+    <p *ngIf="allInfo">{{ resource?.timeToMine | remainTimeInMinute }}</p>
+    <p *ngIf="allInfo">{{ resource?.mineQuantity }}kg</p>
+</span>

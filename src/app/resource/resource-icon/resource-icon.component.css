@@ -1,0 +1,22 @@
+p {
+    display: inline;
+}
+img {
+    vertical-align: middle;
+}
+
+.card {
+    user-select: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark-blue-grey);
+    background: var(--middle-light-grey);
+    background: linear-gradient(132deg, var(--middle-light-grey) 60%, var(--darker-light-grey) 100%);
+    border: solid 1px var(--blue-color);
+    border-radius: 20px;
+    transition: transform 0.2s linear;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}

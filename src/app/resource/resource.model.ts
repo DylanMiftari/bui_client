@@ -3,6 +3,8 @@ export class Resource {
         public id: number,
         public name: string,
         public marketPrice: string,
-        public levelToMine: number
+        public levelToMine: number,
+        public timeToMine: number,
+        public mineQuantity: number,
     ) {}
 }

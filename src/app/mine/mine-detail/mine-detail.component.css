@@ -1,0 +1,43 @@
+div.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card {
+    width: 90vw;
+    max-width: none;
+}
+
+.resources-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.mine {
+    h1 {
+        text-align: center;
+    }
+    img {
+        width: 80%;
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+
+@media only screen and (min-width: 800px) {
+    div.main-container {
+      flex-direction: row;
+    }
+    div.mine {
+        width: 50vw;
+        img {
+            width: 300px;
+        }
+    }
+    div.card {
+        width: 45vw;
+        margin: 5px 1px;
+    }
+  }

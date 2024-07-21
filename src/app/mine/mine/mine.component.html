@@ -1,5 +1,5 @@
 
-<div class="card">
+<div class="card" [routerLink]="['/mine', mine?.id]">
     <h1>Mine n° {{ mine?.id }}</h1>
     <img src="../../../assets/images/icon/mine.png" alt="Image de mine">
     <h3>Niveau : {{ mine?.level }}</h3>

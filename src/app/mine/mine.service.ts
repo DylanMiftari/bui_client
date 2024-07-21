@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppDataService } from '../app-data.service';
 import { SharedDataService } from '../shared-data.service';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class MineService {
         this.playerData.reloadData();
       }
     )
+  }
+
+  public getMineData(id: string): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}mine/${id}`);
   }
 }

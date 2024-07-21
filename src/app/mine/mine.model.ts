@@ -10,6 +10,7 @@ export class Mine {
         public level: number,
         public currentTargetResourceId: number,
         public remainTimeInMinute: number,
-        public resource: Resource
+        public resource: Resource,
+        public mineable_resources: Array<Resource>
     ) {}
 }

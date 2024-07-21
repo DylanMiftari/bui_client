@@ -1,0 +1,51 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<h2 class="page-error" *ngIf="error !== ''">{{ error }}</h2>
+
+<div *ngIf="error === ''" class="main-container">
+    <div class="mine">
+        <h1>Niveau {{ mine?.level }}</h1>
+        <img src="../../../assets/images/icon/mine.png" alt="Image de mine">
+
+        <h2 *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! > 0">
+            Temps restant : {{ mine?.remainTimeInMinute | remainTimeInMinute }}
+        </h2>
+        <h2 *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! < 0">
+            Temps restant : Terminé
+        </h2>
+        <h2 *ngIf="mine?.currentTargetResourceId === null">
+            Temps restant : Aucun minage en cours
+        </h2>
+
+        <h2 *ngIf="mine?.currentTargetResourceId !== null">Ressource : <app-resource-icon [resource]="mine?.resource" [withText]="true"></app-resource-icon></h2>
+        <h2 *ngIf="mine?.currentTargetResourceId === null">Ressrouce : Aucun minage en cours</h2>
+
+        <div class="card-container">
+            <div class="card" *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! < 0">
+                <h2>Récolter</h2>
+            </div>
+            <div class="card disable" *ngIf="mine?.currentTargetResourceId === null || (mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! > 0)">
+                <h2>Récolter</h2>
+            </div>
+
+            <div class="card" *ngIf="playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6">
+                <h2>Améliorer <app-player-money [money]="priceForNextLevel"></app-player-money></h2>
+            </div>
+            <div class="card disable" *ngIf="!playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6">
+                <h2>Améliorer <app-player-money [money]="priceForNextLevel"></app-player-money></h2>
+            </div>
+            <div class="card disable" *ngIf="mine?.level !== undefined && mine?.level! >= 6">
+                <h2>Niveau max</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="resources">
+        <h1>Ressources mineables</h1>
+        <p *ngIf="mine?.currentTargetResourceId === null">Cliquez sur une ressource pour commencer le minage</p>
+        <div class="resources-container">
+            <app-resource-icon *ngFor="let resource of mine?.mineable_resources" [resource]="resource" [cardStyle]="true" [withText]="true" [allInfo]="true"></app-resource-icon>
+        </div>
+        <h3>Améliorez la mine pour débloquer plus de ressources...</h3>
+    </div>
+</div>

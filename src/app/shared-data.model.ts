@@ -4,6 +4,7 @@ import { EstateLevels } from "./model/companylevel/estatelevels.model";
 import { FactoryLevels } from "./model/companylevel/factorylevels.model";
 import { MafiaLevels } from "./model/companylevel/mafialevels.model";
 import { SecurityLevels } from "./model/companylevel/securitylevels.model";
+import { MineLevel } from "./model/minelevel.model";
 
 export class SharedData {
     constructor(
@@ -16,6 +17,7 @@ export class SharedData {
         public estatelevel: EstateLevels,
         public factorylevel: FactoryLevels,
         public securitylevel: SecurityLevels,
-        public new_mine_prices: Array<number>
+        public new_mine_prices: Array<number>,
+        public minelevel: Array<MineLevel>
     ) {}
 }

@@ -21,6 +21,7 @@ html {
 }
 
 
+
 /*
 HEADER
 */
@@ -61,4 +62,10 @@ UTILS CLASS
 
 .pointer {
     cursor: pointer;
+}
+.page-error {
+    opacity: 0.6;
+    text-align: justify;
+    text-align-last: center;
+    padding: 50px 20px;
 }
