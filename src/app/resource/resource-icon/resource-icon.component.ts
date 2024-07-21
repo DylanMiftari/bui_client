@@ -11,4 +11,5 @@ export class ResourceIconComponent {
   @Input() withText: boolean = false;
   @Input() cardStyle: boolean = false;
   @Input() allInfo: boolean = false;
+  @Input() disableCard: boolean = false;
 }

@@ -69,3 +69,10 @@ UTILS CLASS
     text-align-last: center;
     padding: 50px 20px;
 }
+.error {
+    color: var(--error-color);
+}
+.disable {
+    opacity: 0.6;
+    cursor: auto;
+}

@@ -16,6 +16,8 @@ export class MineDetailComponent {
   public error: string = "";
   public priceForNextLevel: number | undefined;
 
+  public collectError: string = "";
+
   constructor(private mineService: MineService, private route: ActivatedRoute, public playerService: PlayerService, 
     public sharedData: SharedDataService
   ) {
@@ -45,5 +47,24 @@ export class MineDetailComponent {
         window.location.reload();
       }
     );
+  }
+
+  public collectMine() {
+    this.mineService.collectMine(this.id!).subscribe(
+      response => {
+        window.location.reload();
+      },
+      error => {
+        this.collectError = error.message;
+      }
+    )
+  }
+
+  public startMine(resourceId: string) {
+    this.mineService.startMine(this.id!, resourceId).subscribe(
+      response => {
+        window.location.reload();
+      }
+    )
   }
 }

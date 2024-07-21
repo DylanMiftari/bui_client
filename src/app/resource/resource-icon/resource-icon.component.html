@@ -3,7 +3,7 @@
     <p *ngIf="withText">{{ resource?.name }}</p>
 </span>
 
-<span *ngIf="cardStyle" class="card">
+<span *ngIf="cardStyle" class="card {{ disableCard ? 'disable' : '' }}">
     <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
     <p *ngIf="withText">{{ resource?.name }}</p>
 

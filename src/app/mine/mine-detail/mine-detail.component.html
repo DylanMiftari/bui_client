@@ -21,12 +21,14 @@
         <h2 *ngIf="mine?.currentTargetResourceId === null">Ressrouce : Aucun minage en cours</h2>
 
         <div class="card-container">
-            <div class="card" *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! < 0">
+            <div class="card" *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! < 0" (click)="collectMine()">
                 <h2>Récolter</h2>
             </div>
             <div class="card disable" *ngIf="mine?.currentTargetResourceId === null || (mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! > 0)">
                 <h2>Récolter</h2>
             </div>
+
+            <p class="error" *ngIf="collectError !== ''">{{ collectError }}</p>
 
             <div class="card" *ngIf="playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6" (click)="upgradeMine()">
                 <h2>Améliorer <app-player-money [money]="priceForNextLevel"></app-player-money></h2>
@@ -34,7 +36,7 @@
             <div class="card disable" *ngIf="!playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6">
                 <h2>Améliorer <app-player-money [money]="priceForNextLevel"></app-player-money></h2>
             </div>
-            <div class="card disable" *ngIf="mine?.level !== undefined && mine?.level! >= 6">
+            <div class="card disable" *ngIf="mine?.level !== undefined && sharedData.sharedData !== undefined && mine?.level! >= sharedData.sharedData.max_mine_level">
                 <h2>Niveau max</h2>
             </div>
         </div>
@@ -43,9 +45,15 @@
     <div class="resources">
         <h1>Ressources mineables</h1>
         <p *ngIf="mine?.currentTargetResourceId === null">Cliquez sur une ressource pour commencer le minage</p>
-        <div class="resources-container">
-            <app-resource-icon *ngFor="let resource of mine?.mineable_resources" [resource]="resource" [cardStyle]="true" [withText]="true" [allInfo]="true"></app-resource-icon>
+        <div class="resources-container" *ngIf="mine?.currentTargetResourceId === null">
+            <app-resource-icon *ngFor="let resource of mine?.mineable_resources" [resource]="resource" [cardStyle]="true" 
+            [withText]="true" [allInfo]="true"
+            (click)="startMine(resource.id.toString())"></app-resource-icon>
         </div>
-        <h3>Améliorez la mine pour débloquer plus de ressources...</h3>
+        <div class="resources-container" *ngIf="mine?.currentTargetResourceId !== null">
+            <app-resource-icon *ngFor="let resource of mine?.mineable_resources" [resource]="resource" [cardStyle]="true" 
+            [withText]="true" [allInfo]="true" [disableCard]="true"></app-resource-icon>
+        </div>
+        <h3 *ngIf="mine !== undefined && sharedData.sharedData !== undefined && mine.level < sharedData.sharedData.max_mine_level">Améliorez la mine pour débloquer plus de ressources...</h3>
     </div>
 </div>

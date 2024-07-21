@@ -20,3 +20,7 @@ img {
     margin: 10px;
     cursor: pointer;
 }
+.disable {
+    cursor: auto;
+    opacity: 0.6;
+}
