@@ -37,4 +37,8 @@ export class MineService {
   public getMineData(id: string): Observable<any> {
     return this.http.get(`${this.sharedData.baseUrl}mine/${id}`);
   }
+
+  public upgradeMine(id: string): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}mine/${id}/upgrade`, []);
+  }
 }

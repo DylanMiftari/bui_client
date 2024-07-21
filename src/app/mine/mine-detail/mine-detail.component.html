@@ -28,7 +28,7 @@
                 <h2>Récolter</h2>
             </div>
 
-            <div class="card" *ngIf="playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6">
+            <div class="card" *ngIf="playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6" (click)="upgradeMine()">
                 <h2>Améliorer <app-player-money [money]="priceForNextLevel"></app-player-money></h2>
             </div>
             <div class="card disable" *ngIf="!playerService.checkMoney(priceForNextLevel) && mine?.level !== undefined && mine?.level! < 6">

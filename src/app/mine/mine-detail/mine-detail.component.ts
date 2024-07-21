@@ -38,4 +38,12 @@ export class MineDetailComponent {
       )
     }
   }
+
+  public upgradeMine() {
+    this.mineService.upgradeMine(this.id!).subscribe(
+      response => {
+        window.location.reload();
+      }
+    );
+  }
 }
