@@ -21,7 +21,7 @@
         <h2 *ngIf="mine?.currentTargetResourceId === null">Ressrouce : Aucun minage en cours</h2>
 
         <div class="card-container">
-            <div class="card" *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! < 0" (click)="collectMine()">
+            <div class="card" *ngIf="mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! <= 0" (click)="collectMine()">
                 <h2>Récolter</h2>
             </div>
             <div class="card disable" *ngIf="mine?.currentTargetResourceId === null || (mine?.currentTargetResourceId && mine?.remainTimeInMinute !== undefined && mine?.remainTimeInMinute! > 0)">
