@@ -1,0 +1,44 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<h1>Vos ressources : </h1>
+<p>Cliquez sur vos ressources pour les séléctionner</p>
+<div class="playerresource-list">
+    <h2>Total : {{ getTotal().toLocaleString() }}kg</h2>
+    <div class="list">
+        <div class="card {{ resource.quantity < step ? 'disable' : '' }}" *ngFor="let resource of playerResourceList" 
+        (click)="selectToSell(resource.id)">
+            <h1>{{ resource.name }}</h1>
+            <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
+            <h3>{{ resource.quantity.toLocaleString() }}kg</h3>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<h1>Ressources séléctionnées pour la vente : </h1>
+<p>Cliquez sur vos ressources pour les déséléctionner</p>
+<p>Quantité de ressource séléctionnée par clique : <input type="number" [(ngModel)]="step" step="0.1" oninput="this.value < 0 ? this.value = Math.abs(this.value) : 0"></p>
+<div class="list sell-resources">
+    <div class="card {{ resource.quantity < step ? 'disable' : '' }}" *ngFor="let resource of sellResources" 
+    (click)="unselectToSell(resource.id)">
+        <h1>{{ resource.name }}</h1>
+        <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
+        <h3>{{ resource.quantity.toLocaleString() }}kg</h3>
+    </div>
+</div>
+<h3 class="total-sell">Total : <app-player-money [money]="getTotalSell()"></app-player-money></h3>
+
+<button [disabled]="sellResources.length === 0">Vendre</button>
+
+<hr>
+
+<h1>Prix des ressources : </h1>
+<p>Les prix sont indiqué pour 0.1kg de ressources</p>
+<div class="all-resources">
+    <div class="card market" *ngFor="let resource of allResources">
+        <h1>{{ resource.name }}</h1>
+        <img [src]="'../../../assets/images/icon/resources/'+resource?.id+'.png'" [alt]="'Icon de '+resource?.name" height="30px">
+        <app-player-money [money]="resource.marketPrice" class="resource-price"></app-player-money>
+    </div>
+</div>
