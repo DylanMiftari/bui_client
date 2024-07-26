@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { PlayerResource } from '../../resource/playerresource.model';
 import { ResourceService } from '../../resource/resource.service';
 import { Resource } from '../../resource/resource.model';
+import { BuiServiceService } from '../../bui-service.service';
+import { LoadingService } from '../../loading.service';
+import { forkJoin, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -16,16 +19,19 @@ export class ShopComponent {
 
   public step: number = 0.1;
 
-  constructor(private resourceService: ResourceService) {
-    this.resourceService.getPlayerResources().subscribe(
-      response => {
-        this.playerResourceList = response;
-      }
-    );
+  public sellError: string = "";
 
-    this.resourceService.getAllResources().subscribe(
-      response => {
-        this.allResources = response;
+  constructor(private resourceService: ResourceService, private buiService: BuiServiceService, private loading: LoadingService) {
+    loading.startLoading();
+
+    forkJoin({
+      playerResource: this.resourceService.getPlayerResources(),
+      allResource: this.resourceService.getAllResources()
+    }).subscribe(
+      responses => {
+        this.playerResourceList = responses.playerResource;
+        this.allResources = responses.allResource;
+        loading.endLoading();
       }
     )
   }
@@ -93,5 +99,17 @@ export class ShopComponent {
       total += r.marketPrice * resource.quantity / 0.1
     }
     return +total.toFixed(2);
+  }
+
+  public sell(): void {
+    this.loading.startLoading();
+    this.resourceService.sellResources(this.sellResources).subscribe(
+      response => {
+        window.location.reload();
+      },
+      error => {
+        this.sellError = this.buiService.extractErrorMessage(error);
+      }
+    )
   }
 }

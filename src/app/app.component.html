@@ -9,4 +9,9 @@
 
     <img class="pointer" src="../assets/images/dashboard.png" alt="Image de maison" width="40px" height="40px" [routerLink]="['/dashboard']">
 </header>
-<router-outlet />
+@if (loading.isLoading) {
+    <p class="loading">Chargement...</p>
+}
+<div class="{{ loading.isLoading ? 'invisible' : '' }}">
+    <router-outlet />
+</div>

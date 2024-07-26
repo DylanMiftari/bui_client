@@ -4,6 +4,7 @@ import { MineService } from '../mine.service';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerService } from '../../player/player.service';
 import { SharedDataService } from '../../shared-data.service';
+import { LoadingService } from '../../loading.service';
 
 @Component({
   selector: 'app-mine-detail',
@@ -19,16 +20,19 @@ export class MineDetailComponent {
   public collectError: string = "";
 
   constructor(private mineService: MineService, private route: ActivatedRoute, public playerService: PlayerService, 
-    public sharedData: SharedDataService
+    public sharedData: SharedDataService, private loading: LoadingService
   ) {
+    this.loading.startLoading();
     this.id = this.route.snapshot.paramMap.get("id");
     if(this.id === null) {
       this.error = "Aucun identifiant de mine renseigné";
+      this.loading.endLoading();
     } else {
       this.mineService.getMineData(this.id).subscribe(
         respone => {
           this.mine = respone;
           this.priceForNextLevel = this.sharedData.sharedData?.minelevel[this.mine!.level-1].priceForNextLevel;
+          loading.endLoading();
         },
         error => {
           if(error.status == 403) {
@@ -36,12 +40,13 @@ export class MineDetailComponent {
           } else if(error.status == 404) {
             this.error = "Aucune mine ne possède l'identifiant n°"+this.id
           }
-        }
-      )
+        },
+      );
     }
   }
 
   public upgradeMine() {
+    this.loading.startLoading();
     this.mineService.upgradeMine(this.id!).subscribe(
       response => {
         window.location.reload();
@@ -50,6 +55,7 @@ export class MineDetailComponent {
   }
 
   public collectMine() {
+    this.loading.startLoading();
     this.mineService.collectMine(this.id!).subscribe(
       response => {
         window.location.reload();
@@ -61,6 +67,7 @@ export class MineDetailComponent {
   }
 
   public startMine(resourceId: string) {
+    this.loading.startLoading();
     this.mineService.startMine(this.id!, resourceId).subscribe(
       response => {
         window.location.reload();

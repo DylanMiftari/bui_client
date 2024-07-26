@@ -29,7 +29,8 @@
 </div>
 <h3 class="total-sell">Total : <app-player-money [money]="getTotalSell()"></app-player-money></h3>
 
-<button [disabled]="sellResources.length === 0">Vendre</button>
+<p class="error">{{ sellError }}</p>
+<button [disabled]="sellResources.length === 0" (click)="sell()">Vendre</button>
 
 <hr>
 

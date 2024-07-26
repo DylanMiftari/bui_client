@@ -76,3 +76,16 @@ UTILS CLASS
     opacity: 0.6;
     cursor: auto;
 }
+
+.loading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    color: var(--dark-blue-grey);
+    font-size: 3em;
+    font-weight: bold;
+}
+.invisible {
+    display: none;
+}
