@@ -1,3 +1,5 @@
+import { Player } from "../player/player.model";
+
 export class Company {
     constructor(
         public id: number,
@@ -7,6 +9,7 @@ export class Company {
         public created_at: Date,
         public updated_at: Date,
         public companylevel: number,
-        public company_type: string
+        public company_type: string,
+        public user: Player | undefined
     ) {}
 }

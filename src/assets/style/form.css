@@ -6,36 +6,6 @@ form {
     div {
         padding: 5px 0;
     }
-    input, select {
-        padding: 5px;
-        border-radius: 20px;
-        border: solid 1px var(--light-grey-color);
-        margin: 5px auto;
-    }
-    select {
-        cursor: pointer;
-    }
-    option {
-        cursor: pointer;
-    }
-    input[type="submit"] {
-        display: block;
-        cursor: pointer;
-        color: var(--dark-blue-grey);
-        font-weight: bold;
-        padding: 5px;
-        border-radius: 20px;
-        border: solid 1px var(--blue-color);
-        transition: b 0.2s linear;
-        background-color: var(--middle-light-grey);
-        transition: background-color 0.2s linear;
-    }
-    input[type="submit"]:hover {
-        background-color: var(--darker-light-grey);
-    }
-    input[type="submit"]:active {
-        background-color: var(--darkest-light-grey);
-    }
     p.link {
         margin: 10px 0;
     }
@@ -45,6 +15,41 @@ form {
     ul {
         margin-left: 20px;
     }
+}
+
+input, select {
+    padding: 5px;
+    border-radius: 20px;
+    border: solid 1px var(--light-grey-color);
+    margin: 5px auto;
+}
+input[type="submit"], button {
+    display: block;
+    cursor: pointer;
+    color: var(--dark-blue-grey);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 20px;
+    border: solid 1px var(--blue-color);
+    transition: b 0.2s linear;
+    background-color: var(--middle-light-grey);
+    transition: background-color 0.2s linear;
+}
+input[type="submit"]:hover, button:hover {
+    background-color: var(--darker-light-grey);
+}
+input[type="submit"]:active, button:hover {
+    background-color: var(--darkest-light-grey);
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--blue-color);
+}
+select {
+    cursor: pointer;
+}
+option {
+    cursor: pointer;
 }
 
 /*
@@ -73,10 +78,6 @@ form.center {
         min-width: 250px;
         transition: border-color 0.2s linear;
         padding: 10px 5px;
-    }
-    input:focus, select:focus {
-        outline: none;
-        border-color: var(--blue-color);
     }
     input[type="submit"] {
         width: 90%;

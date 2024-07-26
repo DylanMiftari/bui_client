@@ -1,0 +1,24 @@
+div.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-size: 1em;
+    }
+}
+
+div.secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h3 {
+        font-size: 0.8em;
+    }
+}
+
+div.filter-box {
+    input {
+        margin: 5px;
+    }
+}

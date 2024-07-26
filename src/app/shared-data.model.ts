@@ -10,7 +10,7 @@ export class SharedData {
     constructor(
         public maxCompaniesPerPlayer: number,
         public companyCreationPrice: number,
-        public companyTypes: Object,
+        public companyTypes: {"bank": string, "casino": string, "estate_agency": string, "factory": string, "mafia": string, "security": string},
         public banklevel: BankLevels,
         public casinolevel: CasinoLevels,
         public mafialevel: MafiaLevels,

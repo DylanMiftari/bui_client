@@ -1,0 +1,20 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<div class="city-info">
+    <div class="text">
+        <p><span>Nom de la ville : </span>{{ playerData.playerData?.city?.name }}</p>
+        <p><span>Pays de la ville : </span>{{ playerData.playerData?.city?.country }}</p>
+        <p><span>Ville de rang : </span>{{ playerData.playerData?.city?.rank }} </p>
+        <p><span>Niveau maximum des entreprises : </span>{{ playerData.playerData?.city?.maxLevelOfCorp }}</p>
+        <p><span>Taxes hebdomadaire : </span><app-player-money [money]="playerData.playerData?.city?.weeklyTaxes"></app-player-money></p>
+        <p><span>Taxes hebdomadaire pour les entreprises : </span><app-player-money [money]="playerData.playerData?.city?.weeklyCompanyTaxes"></app-player-money></p>
+    </div>
+    <div class="image">
+        <img [src]="'../../../assets/images/icon/city/'+playerData.playerData?.city?.id+'.png'"
+        [alt]="'Logo de la ville de : '+playerData.playerData?.city?.name" width="70px">
+        <img [src]="'../../../assets/images/icon/city/countries/'+playerData.playerData?.city?.id+'.png'"
+        [alt]="'Drapeau du pays '+playerData.playerData?.city?.country" width="30px">
+    </div>
+</div>
+
+<app-company-list [companyList]="companies" [withFilter]="true"></app-company-list>

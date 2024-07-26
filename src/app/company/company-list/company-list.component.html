@@ -1,0 +1,47 @@
+@if (withFilter) {
+    <h3>Filtres : </h3>
+    <div class="filter-box">
+        <input type="text" [(ngModel)]="companyName" placeholder="Nom d'entreprise">
+        <select name="type" id="type" [(ngModel)]="companyType">
+            <option value="">--- Séléctionnez un type ---</option>
+            <option *ngFor="let item of sharedData.sharedData?.companyTypes| keyvalue" [value]="item.key">{{item.value}}</option>
+        </select>
+        <input type="text" [(ngModel)]="companyLevel" max="6" min="1" placeholder="Niveau d'entreprise">
+    </div>
+}
+
+<div class="card-container">
+    <div class="card inline" *ngFor="let company of getFilteredCompanies()">
+        <div class="main">
+            <h1>{{ company.name }}</h1>
+            <img [src]="'../../../assets/images/icon/company-type-icon/'+company.company_type+'.png'" 
+            alt="Image du type de l'entreprise" width="40px">
+        </div>
+
+        @switch (company.company_type) {
+            @case ("bank") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.bank }}</h3>
+            }
+            @case ("casino") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.casino }}</h3>
+            }
+            @case ("mafia") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.mafia }}</h3>
+            }
+            @case ("factory") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.factory }}</h3>
+            }
+            @case ("estate_agency") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.estate_agency }}</h3>
+            }
+            @case ("security") {
+                <h3>{{ sharedData.sharedData?.companyTypes?.security }}</h3>
+            }
+        }
+
+        <div class="secondary">
+            <h3>Niveau : {{ company.companylevel }}</h3>
+            <h3>Propriétaire : {{ company.user?.pseudo }}</h3>
+        </div>
+    </div>
+</div>

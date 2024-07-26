@@ -1,0 +1,21 @@
+div.city-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 5px;
+
+    div.text p {
+        margin: 5px 0;
+        span {
+            font-weight: bold;
+        }
+    }
+
+    div.image {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        img {
+            margin-bottom: 10px;
+        }
+    }
+}

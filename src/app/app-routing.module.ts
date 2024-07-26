@@ -8,6 +8,7 @@ import { CreateCompanyComponent } from './company/create-company/create-company.
 import { MinedashboardComponent } from './mine/minedashboard/minedashboard.component';
 import { MineDetailComponent } from './mine/mine-detail/mine-detail.component';
 import { ShopComponent } from './shop/shop/shop.component';
+import { CityComponent } from './city/city/city.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "mine/dashboard", component: MinedashboardComponent},
   { path: "mine/:id", component: MineDetailComponent},
   { path: "shop", component: ShopComponent},
+  { path: "city", component: CityComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 

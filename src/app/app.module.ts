@@ -26,6 +26,8 @@ import { RemainTimeInMinutePipe } from './mine/remain-time-in-minute.pipe';
 import { MineDetailComponent } from './mine/mine-detail/mine-detail.component';
 import { ResourceIconComponent } from './resource/resource-icon/resource-icon.component';
 import { ShopComponent } from './shop/shop/shop.component';
+import { CityComponent } from './city/city/city.component';
+import { CompanyListComponent } from './company/company-list/company-list.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ShopComponent } from './shop/shop/shop.component';
     MineDetailComponent,
     ResourceIconComponent,
     ShopComponent,
+    CityComponent,
+    CompanyListComponent,
   ],
   imports: [
     BrowserModule,
