@@ -9,17 +9,22 @@ import { MinedashboardComponent } from './mine/minedashboard/minedashboard.compo
 import { MineDetailComponent } from './mine/mine-detail/mine-detail.component';
 import { ShopComponent } from './shop/shop/shop.component';
 import { CityComponent } from './city/city/city.component';
+import { InTravelComponent } from './player/in-travel/in-travel.component';
+import { travelGuard } from './guard/travel.guard';
+import { ChangeCityComponent } from './city/change-city/change-city.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: "company/dashboard", component: CompanyDashboardComponent},
-  { path: "company/create", component: CreateCompanyComponent},
-  { path: "mine/dashboard", component: MinedashboardComponent},
-  { path: "mine/:id", component: MineDetailComponent},
-  { path: "shop", component: ShopComponent},
-  { path: "city", component: CityComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [travelGuard]},
+  { path: "company/dashboard", component: CompanyDashboardComponent, canActivate: [travelGuard]},
+  { path: "company/create", component: CreateCompanyComponent, canActivate: [travelGuard]},
+  { path: "mine/dashboard", component: MinedashboardComponent, canActivate: [travelGuard]},
+  { path: "mine/:id", component: MineDetailComponent, canActivate: [travelGuard]},
+  { path: "shop", component: ShopComponent, canActivate: [travelGuard]},
+  { path: "city", component: CityComponent, canActivate: [travelGuard]},
+  { path: "intravel", component: InTravelComponent},
+  { path: "city/change", component: ChangeCityComponent, canActivate: [travelGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 

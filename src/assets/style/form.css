@@ -87,6 +87,12 @@ form.center {
     }
 }
 
+button.center {
+    width: 80%;
+    margin: 15px auto;
+    font-size: 1.2em;
+}
+
 /*
 Column form : Label above input and not inline
 */

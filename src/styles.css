@@ -72,6 +72,11 @@ UTILS CLASS
 .error {
     color: var(--error-color);
 }
+.error-center {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
 .disable {
     opacity: 0.6;
     cursor: auto;
@@ -79,12 +84,14 @@ UTILS CLASS
 
 .loading {
     position: absolute;
-    top: 40%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%);
     color: var(--dark-blue-grey);
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
+    text-align: justify;
+    text-align-last: center;
 }
 .invisible {
     display: none;

@@ -28,6 +28,8 @@ import { ResourceIconComponent } from './resource/resource-icon/resource-icon.co
 import { ShopComponent } from './shop/shop/shop.component';
 import { CityComponent } from './city/city/city.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
+import { InTravelComponent } from './player/in-travel/in-travel.component';
+import { ChangeCityComponent } from './city/change-city/change-city.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
     ShopComponent,
     CityComponent,
     CompanyListComponent,
+    InTravelComponent,
+    ChangeCityComponent,
   ],
   imports: [
     BrowserModule,

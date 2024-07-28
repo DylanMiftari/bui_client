@@ -109,6 +109,7 @@ export class ShopComponent {
       },
       error => {
         this.sellError = this.buiService.extractErrorMessage(error);
+        this.loading.endLoading();
       }
     )
   }

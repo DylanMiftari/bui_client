@@ -4,6 +4,8 @@ export class Player {
       public pseudo: string,
       public city_id: number,
       public playerMoney: number,
-      public created_at: Date
+      public created_at: Date,
+      public inTravel: boolean,
+      public endTravel: Date
     ) {}
   }

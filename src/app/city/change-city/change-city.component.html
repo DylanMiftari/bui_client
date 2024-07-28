@@ -1,0 +1,45 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<h1>Changer de ville</h1>
+
+<h3>Choisisez une ville de destination : </h3>
+<p>Pendant le temps de voyage, vous ne pourrez plus rien faire, il faut donc faire attention au moment où vous partez</p>
+
+<div class="card-container">
+    <div class="card inline" *ngFor="let city of cities" (click)="changeCity(city.id)">
+        <div class="text">
+            <h4>{{ city.name }}</h4>
+            <h4>{{ city.country }}</h4>
+            <p><span>Niveau max des entreprises : </span>{{ city.maxLevelOfCorp }}</p>
+            <p><span>Taxes hebdomadaires : </span><app-player-money [money]="city.weeklyTaxes"></app-player-money></p>
+            <p><span>Taxes hebdomadaires des entreprises : </span><app-player-money [money]="city.weeklyCompanyTaxes"></app-player-money></p>
+            <p><span>Nombre d'entreprises : </span>{{ city.nbEntreprises }}</p>
+            @switch (city.name) {
+                @case ("Las Vegas") {
+                    <p>Les casinos peuvent atteindre le niveau 6 et leurs impôts seront divisées par 4</p>
+                }
+                @case ("Paris") {
+                    <p>Si une banque ferme, tous les clients récupèrent 10% de l'argent de leur compte</p>
+                }
+            }
+            @if (playerData.playerData !== undefined && playerData.playerData.city.id !== city.id) {
+                <h4>
+                    Temps de voyage : {{ cityService.getTimeTravel(playerData.playerData.city, city) }} jours
+                </h4>
+            } @else if (playerData.playerData !== undefined && playerData.playerData.city.id === city.id) {
+                <h4>
+                    Votre ville actuelle
+                </h4>
+            }
+        </div>
+
+        <div class="image">
+            <img [src]="'../../../assets/images/icon/city/'+city.id+'.png'"
+            [alt]="'Logo de la ville de : '+city.name" width="70px">
+            <img [src]="'../../../assets/images/icon/city/countries/'+city.id+'.png'"
+            [alt]="'Drapeau du pays '+city.country" width="30px">
+        </div>
+    </div>
+</div>
+
+<h3 class="error error-center">{{ travelError }}</h3>

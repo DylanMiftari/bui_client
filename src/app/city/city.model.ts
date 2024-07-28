@@ -6,6 +6,7 @@ export class City {
         public maxLevelOfCorp: number,
         public weeklyTaxes: number,
         public weeklyCompanyTaxes: number,
-        public rank: number
+        public rank: number,
+        public nbEntreprises: number | undefined
     ) {}
 }

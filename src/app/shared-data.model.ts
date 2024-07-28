@@ -20,5 +20,8 @@ export class SharedData {
         public new_mine_prices: Array<number>,
         public minelevel: Array<MineLevel>,
         public max_mine_level: number,
+        public change_city_cost: number,
+        public default_travel_time: number,
+        public travel_tier_multiplicator: number,
     ) {}
 }

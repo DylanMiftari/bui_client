@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PlayerService } from '../../player/player.service';
 import { SharedDataService } from '../../shared-data.service';
 import { LoadingService } from '../../loading.service';
+import { BuiServiceService } from '../../bui-service.service';
 
 @Component({
   selector: 'app-mine-detail',
@@ -20,7 +21,7 @@ export class MineDetailComponent {
   public collectError: string = "";
 
   constructor(private mineService: MineService, private route: ActivatedRoute, public playerService: PlayerService, 
-    public sharedData: SharedDataService, private loading: LoadingService
+    public sharedData: SharedDataService, private loading: LoadingService, private buiService: BuiServiceService
   ) {
     this.loading.startLoading();
     this.id = this.route.snapshot.paramMap.get("id");
@@ -61,7 +62,8 @@ export class MineDetailComponent {
         window.location.reload();
       },
       error => {
-        this.collectError = error.message;
+        this.collectError = this.buiService.extractErrorMessage(error);
+        this.loading.endLoading();
       }
     )
   }

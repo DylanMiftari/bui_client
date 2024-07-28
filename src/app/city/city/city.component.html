@@ -9,6 +9,7 @@
         <p><span>Taxes hebdomadaire : </span><app-player-money [money]="playerData.playerData?.city?.weeklyTaxes"></app-player-money></p>
         <p><span>Taxes hebdomadaire pour les entreprises : </span><app-player-money [money]="playerData.playerData?.city?.weeklyCompanyTaxes"></app-player-money></p>
     </div>
+
     <div class="image">
         <img [src]="'../../../assets/images/icon/city/'+playerData.playerData?.city?.id+'.png'"
         [alt]="'Logo de la ville de : '+playerData.playerData?.city?.name" width="70px">
@@ -16,5 +17,17 @@
         [alt]="'Drapeau du pays '+playerData.playerData?.city?.country" width="30px">
     </div>
 </div>
+
+@if (playerService.checkMoney(sharedData.sharedData?.change_city_cost)) {
+    <button class="center" [routerLink]="['/city/change']">
+        Changer de ville <br>
+        <app-player-money [money]="sharedData.sharedData?.change_city_cost"></app-player-money>
+    </button>
+} @else {
+    <button class="center disable">
+        Changer de ville <br>
+        <app-player-money [money]="sharedData.sharedData?.change_city_cost"></app-player-money>
+    </button>
+}
 
 <app-company-list [companyList]="companies" [withFilter]="true"></app-company-list>
