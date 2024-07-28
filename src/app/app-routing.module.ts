@@ -12,6 +12,7 @@ import { CityComponent } from './city/city/city.component';
 import { InTravelComponent } from './player/in-travel/in-travel.component';
 import { travelGuard } from './guard/travel.guard';
 import { ChangeCityComponent } from './city/change-city/change-city.component';
+import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: "city", component: CityComponent, canActivate: [travelGuard]},
   { path: "intravel", component: InTravelComponent},
   { path: "city/change", component: ChangeCityComponent, canActivate: [travelGuard]},
+  { path: "bank/:id", component: BankDashboardComponent, canActivate: [travelGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 

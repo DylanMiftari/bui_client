@@ -30,6 +30,8 @@ import { CityComponent } from './city/city/city.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import { InTravelComponent } from './player/in-travel/in-travel.component';
 import { ChangeCityComponent } from './city/change-city/change-city.component';
+import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.component';
+import { CompanyInfoComponent } from './company/company-info/company-info.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { ChangeCityComponent } from './city/change-city/change-city.component';
     CompanyListComponent,
     InTravelComponent,
     ChangeCityComponent,
+    BankDashboardComponent,
+    CompanyInfoComponent,
   ],
   imports: [
     BrowserModule,

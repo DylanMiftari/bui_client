@@ -1,0 +1,6 @@
+<h1>{{ company?.name }}</h1>
+<img [src]="'../../../assets/images/icon/company-type-icon/'+company?.company_type+'.png'" 
+[alt]="'Image de '+companyService.getCompanyType(company?.company_type)" width="80px">
+<h3>{{ companyService.getCompanyType(company?.company_type) }} de niveau {{ company?.companylevel }}</h3>
+<h3>Argent dans le coffre : <app-player-money [money]="company?.money_in_safe"></app-player-money></h3>
+

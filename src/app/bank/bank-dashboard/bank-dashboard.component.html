@@ -1,0 +1,14 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<p class="page-error" *ngIf="error !== ''">{{ error }}</p>
+
+
+<div *ngIf="error === ''">
+    <div class="menu">
+        <button>Informations générales de la banque</button>
+    </div>
+    <hr>
+    <div class="view">
+        <app-company-info [company]="company"></app-company-info>
+    </div>
+</div>
