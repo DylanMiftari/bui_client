@@ -8,7 +8,7 @@ import { Company } from '../../company/company.model';
 @Component({
   selector: 'app-bank-dashboard',
   templateUrl: './bank-dashboard.component.html',
-  styleUrls: ["../../../assets/style/form.css", './bank-dashboard.component.css']
+  styleUrls: ["../../../assets/style/form.css", "../../../assets/style/company-dashboard.css", './bank-dashboard.component.css']
 })
 export class BankDashboardComponent {
   public id: string | null;
@@ -31,8 +31,10 @@ export class BankDashboardComponent {
       }).subscribe(
         responses => {
           this.company = responses.companyData
+          loading.endLoading();
         },
         error => {
+          loading.endLoading();
           if(error.status === 404) {
             this.error = "Aucune entreprise n'existe avec cet id";
           } else if(error.status === 403) {

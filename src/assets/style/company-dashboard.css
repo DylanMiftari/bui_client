@@ -1,0 +1,19 @@
+div.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    button {
+        padding: 5px;
+        margin: 5px;
+    }
+}
+
+hr {
+    width: 80vw;
+    margin: 15px 10vw;
+    background-color: var(--dark-blue-grey);
+    height: 2px;
+    border: none;
+}

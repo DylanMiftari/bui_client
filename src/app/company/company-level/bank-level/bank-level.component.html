@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="level">
+        <h3>Niveau 1</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l1?.maxMoneyAccount"></app-player-money><br>
+                <span>* Vous pourrez régler vous même ce paramètre mais ceci est la limite</span>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l1?.maxResourceAccount }}kg<br>
+                <span>* Vous pourrez régler vous même ce paramètre mais ceci est la limite</span>
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l1?.maxNbAccount?.toLocaleString() }}
+            </li>
+        </ul>
+    </div>
+    
+    <div class="level">
+        <h3>Niveau 2</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l2?.maxMoneyAccount"></app-player-money>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l2?.maxResourceAccount }}kg
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l2?.maxNbAccount?.toLocaleString() }}
+            </li>
+            <li>
+                Débloquage du système de prêt
+            </li>
+        </ul>
+    </div>
+    
+    <div class="level">
+        <h3>Niveau 3</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l3?.maxMoneyAccount"></app-player-money>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l3?.maxResourceAccount }}kg
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l3?.maxNbAccount?.toLocaleString() }}
+            </li>
+            <li>
+                Banque utilisable et gérable à distance
+            </li>
+        </ul>
+    </div>
+    
+    <div class="level">
+        <h3>Niveau 4</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l4?.maxMoneyAccount"></app-player-money>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l4?.maxResourceAccount }}kg
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l4?.maxNbAccount?.toLocaleString() }}
+            </li>
+        </ul>
+    </div>
+    
+    <div class="level">
+        <h3>Niveau 5</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l5?.maxMoneyAccount"></app-player-money>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l5?.maxResourceAccount }}kg
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l5?.maxNbAccount?.toLocaleString() }}
+            </li>
+        </ul>
+    </div>
+    
+    <div class="level">
+        <h3>Niveau 6</h3>
+        <ul>
+            <li>
+                Argent maximum par compte : <app-player-money [money]="sharedData.sharedData?.banklevel?.l6?.maxMoneyAccount"></app-player-money>
+            </li>
+            <li>
+                Capacité en ressources maximum par compte : {{ sharedData.sharedData?.banklevel?.l6?.maxResourceAccount }}kg
+            </li>
+            <li>
+                Nombre maximum de comptes ouvrables : {{ sharedData.sharedData?.banklevel?.l6?.maxNbAccount?.toLocaleString() }}
+            </li>
+        </ul>
+    </div>
+</div>

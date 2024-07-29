@@ -44,4 +44,8 @@ export class CompanyService {
         return "";
     }
   }
+
+  upgradeCompany(companyId: number): Observable<any> {
+    return this.http.patch(`${this.baseUrl}company/upgrade/${companyId}`, {});
+  }
 }

@@ -1,3 +1,4 @@
+import { CompanyLevel } from "./company/comanylevel.model";
 import { BankLevels } from "./model/companylevel/banklevels.model";
 import { CasinoLevels } from "./model/companylevel/casinolevels.model";
 import { EstateLevels } from "./model/companylevel/estatelevels.model";
@@ -23,5 +24,6 @@ export class SharedData {
         public change_city_cost: number,
         public default_travel_time: number,
         public travel_tier_multiplicator: number,
+        public companylevels: Array<CompanyLevel>
     ) {}
 }

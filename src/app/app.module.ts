@@ -32,6 +32,7 @@ import { InTravelComponent } from './player/in-travel/in-travel.component';
 import { ChangeCityComponent } from './city/change-city/change-city.component';
 import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.component';
 import { CompanyInfoComponent } from './company/company-info/company-info.component';
+import { BankLevelComponent } from './company/company-level/bank-level/bank-level.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { CompanyInfoComponent } from './company/company-info/company-info.compon
     ChangeCityComponent,
     BankDashboardComponent,
     CompanyInfoComponent,
+    BankLevelComponent,
   ],
   imports: [
     BrowserModule,
