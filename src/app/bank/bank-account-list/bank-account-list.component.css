@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+div.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+div.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

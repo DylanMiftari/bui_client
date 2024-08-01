@@ -1,0 +1,22 @@
+@if (bankAccounts.length === 0) {
+    <h1>Chargement...</h1>
+} @else {
+    <h2>Listes des comptes : </h2>
+    <h4>{{ bankAccounts.length }}/{{ bank.banklevel?.maxNbAccount }}</h4>
+    <div class="card-container">
+        <div class="card inline" *ngFor="let bankAccount of bankAccounts">
+            <div class="left">
+                <h3>Compte de : {{ bankAccount.player?.pseudo }}</h3>
+                <p><span>Frais de tenu de compte : </span>{{ bankAccount.accountMaintenanceCost.toLocaleString() }}</p>
+                <p><span>Taux de transfert : </span>{{ bankAccount.transferCost }}</p>
+                <p><span>Argent maximum : </span>{{ bankAccount.maxMoney.toLocaleString() }}</p>
+                <p><span>Ressources maximum : </span>{{ bankAccount.maxResource }}kg</p>
+            </div>
+
+            <div class="right">
+                <app-player-money [money]="bankAccount.money"></app-player-money>
+                <app-player-resource [quantity]="bankAccountService.getTotalResource(bankAccount)"></app-player-resource>
+            </div>
+        </div>
+    </div>
+}

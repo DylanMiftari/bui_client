@@ -34,6 +34,8 @@ import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.com
 import { CompanyInfoComponent } from './company/company-info/company-info.component';
 import { BankLevelComponent } from './company/company-level/bank-level/bank-level.component';
 import { BankParamFormComponent } from './bank/bank-param-form/bank-param-form.component';
+import { BankAccountListComponent } from './bank/bank-account-list/bank-account-list.component';
+import { PlayerResourceComponent } from './player/player-resource/player-resource.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { BankParamFormComponent } from './bank/bank-param-form/bank-param-form.c
     CompanyInfoComponent,
     BankLevelComponent,
     BankParamFormComponent,
+    BankAccountListComponent,
+    PlayerResourceComponent,
   ],
   imports: [
     BrowserModule,

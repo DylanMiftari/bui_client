@@ -1,0 +1,11 @@
+span {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.0em;
+    font-family: sans-serif;
+    img {
+        padding: 0 5px;
+    }
+}
