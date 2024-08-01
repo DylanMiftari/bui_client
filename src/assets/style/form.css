@@ -12,8 +12,19 @@ form {
     p.error {
         color: var(--error-color);
     }
+    p.valid {
+        color: var(--valid-color);
+    }
     ul {
         margin-left: 20px;
+    }
+    .explain {
+        font-style: italic;
+        font-size: 0.7em;
+        display: block;
+    }
+    label {
+        display: block;
     }
 }
 
@@ -34,6 +45,10 @@ input[type="submit"], button {
     transition: b 0.2s linear;
     background-color: var(--middle-light-grey);
     transition: background-color 0.2s linear;
+}
+input[type="submit"].bigger {
+    font-size: 1.2em;
+    padding: 10px;
 }
 input[type="submit"]:hover, button:hover {
     background-color: var(--darker-light-grey);

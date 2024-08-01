@@ -33,6 +33,7 @@ import { ChangeCityComponent } from './city/change-city/change-city.component';
 import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.component';
 import { CompanyInfoComponent } from './company/company-info/company-info.component';
 import { BankLevelComponent } from './company/company-level/bank-level/bank-level.component';
+import { BankParamFormComponent } from './bank/bank-param-form/bank-param-form.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { BankLevelComponent } from './company/company-level/bank-level/bank-leve
     BankDashboardComponent,
     CompanyInfoComponent,
     BankLevelComponent,
+    BankParamFormComponent,
   ],
   imports: [
     BrowserModule,

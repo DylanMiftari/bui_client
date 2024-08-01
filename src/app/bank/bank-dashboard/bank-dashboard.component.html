@@ -5,11 +5,12 @@
 
 <div *ngIf="error === ''">
     <div class="menu">
-        <button>Informations générales de la banque</button>
-        <button>Paramètre de la banque</button>
+        <button (click)="changePage('company')">Informations générales de la banque</button>
+        <button (click)="changePage('param')">Paramètre de la banque</button>
     </div>
     <hr>
     <div class="view">
-        <app-company-info [company]="company"></app-company-info>
+        <app-company-info [company]="company" *ngIf="page === 'company'"></app-company-info>
+        <app-bank-param-form [bank]="bank" *ngIf="page === 'param' && bank !== undefined"></app-bank-param-form>
     </div>
 </div>

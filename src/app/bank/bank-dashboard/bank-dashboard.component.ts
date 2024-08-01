@@ -4,6 +4,8 @@ import { LoadingService } from '../../loading.service';
 import { CompanyService } from '../../company/company.service';
 import { forkJoin } from 'rxjs';
 import { Company } from '../../company/company.model';
+import { Bank } from '../bank.model';
+import { BankService } from '../bank.service';
 
 @Component({
   selector: 'app-bank-dashboard',
@@ -15,9 +17,13 @@ export class BankDashboardComponent {
 
   public error: string = "";
 
-  public company: Company | undefined;
+  public page: string = "company"
 
-  constructor (private route: ActivatedRoute, private loading: LoadingService, private companyService: CompanyService) {
+  public company: Company | undefined;
+  public bank: Bank | undefined;
+
+  constructor (private route: ActivatedRoute, private loading: LoadingService, private companyService: CompanyService, 
+    private bankService: BankService) {
     // URL param
     this.loading.startLoading();
     this.id = this.route.snapshot.paramMap.get("id");
@@ -28,9 +34,11 @@ export class BankDashboardComponent {
       // Load data
       forkJoin({
         companyData: this.companyService.getCompany(+this.id),
+        bankData: this.bankService.getBank(+this.id)
       }).subscribe(
         responses => {
-          this.company = responses.companyData
+          this.company = responses.companyData;
+          this.bank = responses.bankData;
           loading.endLoading();
         },
         error => {
@@ -44,5 +52,9 @@ export class BankDashboardComponent {
       );
 
     }
+  }
+
+  public changePage(_page: string) {
+    this.page = _page;
   }
 }

@@ -1,0 +1,49 @@
+<h2>Paramètre de votre banque</h2>
+
+<form class="form" (ngSubmit)="editBank()">
+    <span class="explain">
+        * Ces paramètres seront modifiables pour chaque compte, ceci est leur valeur par défaut lorsqu'un compte est créé
+    </span>
+    <div>
+        <label for="maintenancecost">Frais de tenu de compte (hebdomadaire)</label>
+        <input type="number" name="maintenancecost" id="maintenancecost" [(ngModel)]="bank.accountMaintenanceCost"
+        min="0" step="1500">
+        <span class="explain">
+            * Frais hebdomadaire que vous paieront les joueurs pour maintenir leur compte ouvert.
+        </span>
+    </div>
+
+    <div>
+        <label for="transfertrate">Taux de transfert</label>
+        <input type="number" name="transfertrate" id="transfertrate" [(ngModel)]="bank.transferCost" min="0" step="3.5">%
+        <span class="explain">
+            * Lorsqu'une transaction est effectuée depuis un compte, vous récupérez un certain pourcentage de la somme de la 
+            transaction.
+        </span>
+    </div>
+
+    <div>
+        <label for="maxmoney">Argent maximum par compte</label>
+        <input type="number" name="maxmoney" id="maxmoney" [(ngModel)]="bank.maxAccountMoney" min="0" 
+        [max]="bank.banklevel!.maxMoneyAccount" step="50000">
+        <span class="explain">
+            * Argent maximum que chaque joueur pourra stocker dans son compte.<br>
+            Limite maximum : {{ bank.banklevel!.maxMoneyAccount.toLocaleString() }}
+        </span>
+    </div>
+
+    <div>
+        <label for="maxresource">Quantité de ressource maximum par compte</label>
+        <input type="number" name="maxresource" id="maxresource" [(ngModel)]="bank.maxAccountResource" min="0"
+        [max]="bank.banklevel!.maxResourceAccount" step="15">kg
+        <span class="explain">
+            * Quantité de ressources maximum que chaque joueur pourra stocker dans son compte.<br>
+            Limite maximum : {{ bank.banklevel!.maxResourceAccount.toLocaleString() }}kg
+        </span>
+    </div>
+
+    <p class="error">{{ formError }}</p>
+    <p class="valid">{{ validForm }}</p>
+
+    <input type="submit" value="Enregistrer" class="bigger">
+</form>
