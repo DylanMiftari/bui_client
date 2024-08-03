@@ -4,6 +4,8 @@ import { LoadingService } from '../../loading.service';
 import { Company } from '../../company/company.model';
 import { CompanyService } from '../../company/company.service';
 import { forkJoin } from 'rxjs';
+import { CasinoService } from '../casino.service';
+import { Casino } from '../casino.model';
 
 @Component({
   selector: 'app-casino-dashboard',
@@ -16,8 +18,11 @@ export class CasinoDashboardComponent implements OnInit {
   public page: string = "company";
 
   public company: Company | undefined;
+  public casino: Casino | undefined;
 
-  constructor(private route: ActivatedRoute, private loading: LoadingService, private companyService: CompanyService) {
+  constructor(private route: ActivatedRoute, private loading: LoadingService, private companyService: CompanyService,
+    private casinoService: CasinoService
+  ) {
 
     loading.startLoading();
     this.companyId = this.route.snapshot.paramMap.get("companyId");
@@ -30,10 +35,12 @@ export class CasinoDashboardComponent implements OnInit {
     if(this.companyId !== null) {
       forkJoin({
         companyData: this.companyService.getCompany(+this.companyId),
+        casinoData: this.casinoService.getCasino(+this.companyId, "casinolevel")
       }).subscribe(
         responses => {
           this.loading.endLoading();
           this.company = responses.companyData;
+          this.casino = responses.casinoData;
         }
       )
     }

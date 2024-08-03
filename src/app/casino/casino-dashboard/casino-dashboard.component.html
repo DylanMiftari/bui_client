@@ -4,10 +4,12 @@
 
 <div *ngIf="error === ''">
     <div class="menu">
-        <button (click)="changePage('company')">Informations générales de la banque</button>
+        <button (click)="changePage('company')">Informations générales de la casino</button>
+        <button (click)="changePage('param')">Paramètre du casino</button>
     </div>
     <hr>
     <div class="view">
         <app-company-info [company]="company" *ngIf="page === 'company'"></app-company-info>
+        <app-casino-param-form [casino]="casino" *ngIf="page === 'param' && casino !== undefined"></app-casino-param-form>
     </div>
 </div>

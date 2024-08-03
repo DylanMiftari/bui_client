@@ -39,6 +39,7 @@ import { PlayerResourceComponent } from './player/player-resource/player-resourc
 import { BankAccountTransactionsComponent } from './bank/bank-account-transactions/bank-account-transactions.component';
 import { CasinoDashboardComponent } from './casino/casino-dashboard/casino-dashboard.component';
 import { CasinoLevelComponent } from './company/company-level/casino-level/casino-level.component';
+import { CasinoParamFormComponent } from './casino/casino-param-form/casino-param-form.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { CasinoLevelComponent } from './company/company-level/casino-level/casin
     BankAccountTransactionsComponent,
     CasinoDashboardComponent,
     CasinoLevelComponent,
+    CasinoParamFormComponent,
   ],
   imports: [
     BrowserModule,

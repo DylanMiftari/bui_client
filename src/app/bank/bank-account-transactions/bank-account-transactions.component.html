@@ -4,6 +4,18 @@
     <h2>Compte de {{ bankAccount?.player?.pseudo }}</h2>
     <app-player-money [money]="bankAccount?.money"></app-player-money>
 
+    <ul>
+        <li>
+            Le montant est le prix de l'achat qu'a fait le client
+        </li>
+        <li>
+            Le coût de transfert et l'argent qu'a pris votre banque pour la transaction
+        </li>
+        <li>
+            Le coût total est l'argent total qu'a dépensé le client (montant + coût de transfert)
+        </li>
+    </ul>
+
     <h2>Transactions</h2>
     <div class="card-container reverse">
         <div class="card inline" *ngFor="let transaction of bankAccount?.transactions">
@@ -11,6 +23,7 @@
                 <p><span>Date : </span>{{ transaction.created_at | date : 'dd/MM/yyyy hh:mm:ss' }}</p>
                 <p><span>Montant : </span><app-player-money [money]="transaction.money"></app-player-money></p>
                 <p><span>Coût de transfert : </span><app-player-money [money]="transaction.transfert_cost"></app-player-money></p>
+                <p><span>Coût total de la transaction : </span><app-player-money [money]="transaction.money + transaction.transfert_cost"></app-player-money></p>
             </div>
             <div class="right">
                 <p>{{ transaction.description }}</p>
