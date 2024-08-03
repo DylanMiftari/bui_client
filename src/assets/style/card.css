@@ -3,6 +3,10 @@ div.card-container {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+div.reverse {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+}
 
 div.card {
     user-select: none;
@@ -54,4 +58,15 @@ div.disable {
 }
 div.card:hover {
     transform: scale(1.1);
+}
+
+div.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+div.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }

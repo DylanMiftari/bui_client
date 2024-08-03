@@ -36,6 +36,9 @@ import { BankLevelComponent } from './company/company-level/bank-level/bank-leve
 import { BankParamFormComponent } from './bank/bank-param-form/bank-param-form.component';
 import { BankAccountListComponent } from './bank/bank-account-list/bank-account-list.component';
 import { PlayerResourceComponent } from './player/player-resource/player-resource.component';
+import { BankAccountTransactionsComponent } from './bank/bank-account-transactions/bank-account-transactions.component';
+import { CasinoDashboardComponent } from './casino/casino-dashboard/casino-dashboard.component';
+import { CasinoLevelComponent } from './company/company-level/casino-level/casino-level.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { PlayerResourceComponent } from './player/player-resource/player-resourc
     BankParamFormComponent,
     BankAccountListComponent,
     PlayerResourceComponent,
+    BankAccountTransactionsComponent,
+    CasinoDashboardComponent,
+    CasinoLevelComponent,
   ],
   imports: [
     BrowserModule,

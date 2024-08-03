@@ -1,0 +1,20 @@
+@if (error !== '') {
+    <h1 class="page-error">{{ error }}</h1>
+} @else {
+    <h2>Compte de {{ bankAccount?.player?.pseudo }}</h2>
+    <app-player-money [money]="bankAccount?.money"></app-player-money>
+
+    <h2>Transactions</h2>
+    <div class="card-container reverse">
+        <div class="card inline" *ngFor="let transaction of bankAccount?.transactions">
+            <div class="left">
+                <p><span>Date : </span>{{ transaction.created_at | date : 'dd/MM/yyyy hh:mm:ss' }}</p>
+                <p><span>Montant : </span><app-player-money [money]="transaction.money"></app-player-money></p>
+                <p><span>Coût de transfert : </span><app-player-money [money]="transaction.transfert_cost"></app-player-money></p>
+            </div>
+            <div class="right">
+                <p>{{ transaction.description }}</p>
+            </div>
+        </div>
+    </div>
+}

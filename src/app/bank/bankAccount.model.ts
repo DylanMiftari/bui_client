@@ -1,4 +1,5 @@
 import { Player } from "../player/player.model";
+import { BankAccountTransaction } from "./bankAccountTransaction.model";
 import { bankResourceAccount } from "./bankResourceAccount.model";
 
 export class BankAccount {
@@ -11,6 +12,7 @@ export class BankAccount {
         public maxResource: number,
         public created_at: number,
         public player: Player | undefined,
-        public bank_resource_account: Array<bankResourceAccount> | undefined
+        public bank_resource_account: Array<bankResourceAccount> | undefined,
+        public transactions: Array<BankAccountTransaction> | undefined
     ) {}
 }

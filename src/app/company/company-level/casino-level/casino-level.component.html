@@ -1,0 +1,135 @@
+<div class="container">
+    <div class="level">
+        <h3>Level 1</h3>
+        <ul>
+            <li>Nouveau jeu : Machine à sous</li>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l1?.nbMaxTicket?.toLocaleString() }}<br>
+                <span>* Un ticket dure 1 semaine, vous ne pouvez pas avoir plus de ticket valable en même temps</span>
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l1?.maxTicketPrice"></app-player-money><br>
+                <span>* Vous pouvez décider du prix mais ceci est la limite maximum</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 2</h3>
+        <ul>
+            <li>Nouveau jeu : Lancer de dés</li>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l2?.nbMaxTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l2?.maxTicketPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 3</h3>
+        <ul>
+            <li>Nouveau jeu : Solo poker</li>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l3?.nbMaxTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l3?.maxTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de ticket VIP maximum : {{ sharedData.sharedData?.casinolevel?.l3?.nbMaxVIPTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket VIP : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l3?.maxVIPTicketPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 4</h3>
+        <ul>
+            <li>
+                Nouveau jeu : Blackjack
+            </li>
+            <li>
+                Ticket VIP : Les tickets VIP coûtent plus cher et sont moins nombreux, les mises maximales autorisées aux jeux peuvent
+                donc être plus élevées pour vos VIP
+            </li>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l4?.nbMaxTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l4?.maxTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de ticket VIP maximum : {{ sharedData.sharedData?.casinolevel?.l4?.nbMaxVIPTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket VIP : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l4?.maxVIPTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de suite maximum : {{ sharedData.sharedData?.casinolevel?.l4?.nbMaxSuite }}
+            </li>
+            <li>
+                Loyer maximum d'une suite : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l4?.maxSuiteRent"></app-player-money><br>
+                <span>* Le loyer est hebdomadaire</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 5</h3>
+        <ul>
+            <li>
+                Nouveau jeu : Roulette
+            </li>
+            <li>
+                Suite : Vous pouvez construire des suites pour qu'elles deviennent la maison de certains joueurs. Ces joueurs passeront 
+                Ultra VIP, vous pourrez augmenter les mises maximales autorisées et leur donner des parties gratuites
+            </li>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l5?.nbMaxTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l5?.maxTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de ticket VIP maximum : {{ sharedData.sharedData?.casinolevel?.l5?.nbMaxVIPTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket VIP : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l5?.maxVIPTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de suite maximum : {{ sharedData.sharedData?.casinolevel?.l5?.nbMaxSuite }}
+            </li>
+            <li>
+                Loyer maximum d'une suite : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l5?.maxSuiteRent"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 6</h3>
+        <ul>
+            <li>
+                Nombre de ticket maximum : {{ sharedData.sharedData?.casinolevel?.l6?.nbMaxTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l6?.maxTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de ticket VIP maximum : {{ sharedData.sharedData?.casinolevel?.l6?.nbMaxVIPTicket?.toLocaleString() }}
+            </li>
+            <li>
+                Prix maximum du ticket VIP : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l6?.maxVIPTicketPrice"></app-player-money>
+            </li>
+            <li>
+                Nombre de suite maximum : {{ sharedData.sharedData?.casinolevel?.l6?.nbMaxSuite }}
+            </li>
+            <li>
+                Loyer maximum d'une suite : <app-player-money [money]="sharedData.sharedData?.casinolevel?.l6?.maxSuiteRent"></app-player-money>
+            </li>
+        </ul>
+    </div>
+</div>
