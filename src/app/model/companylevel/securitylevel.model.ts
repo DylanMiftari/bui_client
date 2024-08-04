@@ -9,6 +9,7 @@ export class SecurityLevel {
         public hasSecurityGuard: boolean,
         public hasCyberDefense: boolean,
         public hasAntiAISystem: boolean,
-        public hasContainmentSystem: boolean
+        public hasContainmentSystem: boolean,
+        public distance_multiplicator: number
     ) {}
 }

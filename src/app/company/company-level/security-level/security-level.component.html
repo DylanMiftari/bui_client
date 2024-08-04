@@ -1,1 +1,164 @@
-<p>security-level works!</p>
+<div class="container">
+    <span class="explain">
+        Les systèmes de sécurité protegant les banques s'activeront lorsqu'un vol sur un compte bancaire a lieu. Leur but est de protéger 
+        les comptes bancaires. C'est en revanche au propriétaire de la banque de mettre ces systèmes en place.
+    </span>
+    <div class="level">
+        <h3>Level 1</h3>
+        <ul>
+            <li>
+                Alarme pour maison : Réduit les probabilités de succès d'un vol de {{ sharedData.sharedData?.security?.house_alarm_decrease_chance }}% et
+                réduite la quantité d'argent volé en cas de succès de {{ sharedData.sharedData?.security?.house_alarm_decrease_robed_quantity_min }} à 
+                {{ sharedData.sharedData?.security?.house_alarm_decrease_robed_quantity_max }}%.
+            </li>
+            <li>
+                Alarme pour entreprise : Réduit les probabilités de succès d'un vol de {{ sharedData.sharedData?.security?.company_alarm_decrease_chance }}% et
+                réduit la quantité d'argent volé en cas de succès de {{ sharedData.sharedData?.security?.company_alarm_decrease_robed_quantity_min }} à 
+                {{ sharedData.sharedData?.security?.company_alarm_decrease_robed_quantity_max }}%.
+            </li>
+            <li>
+                Spray au poivre (joueur) : Réduit les probabilités de succès du vol de {{ sharedData.sharedData?.security?.pepper_spray_decrease_chance }}% 
+                et réduit la quantité d'argent volé de {{ sharedData.sharedData?.security?.pepper_spray_decrease_robed_quantity }}%. Le spray sera détruit si 
+                le joueur subit un vol, qu'il réussisse ou qu'il échoue.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l1?.resourceSafeCapacity }}kg
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 2</h3>
+        <ul>
+            <li>
+                Diffuseur de gaz (banque) : Réduit la quantité d'argent volée de {{ sharedData.sharedData?.security?.bank_gas_dispenser_decrease_robed_quantity }}%.
+                Une fois utilisé (lors d'un vol réussi uniquement), il aura besoin d'être rechargé avec {{ sharedData.sharedData?.security?.bank_gas_dispenser_gas_per_use }}kg de gaz.
+            </li>
+            <li>
+                Diffuseur de gaz (entreprise) : Réduit la quantité d'argent volée de {{ sharedData.sharedData?.security?.company_gas_dispenser_decrease_robed_quantity }}%.
+                Une fois utilisé (lors d'un vol réussi uniquement), il aura besoin d'être rechargé avec {{ sharedData.sharedData?.security?.company_gas_dispenser_gas_per_use }}kg de gaz.
+            </li>
+            <li>
+                Porte renforcée (maison) : Divise par {{ sharedData.sharedData?.security?.reinforced_door_chance_divider }} la probabilité de 
+                réussite d'un vol. La porte renforcée sera détruite si un vol réussi.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l2?.resourceSafeCapacity }}kg
+            </li>
+            <li>
+                L'entreprise est utilisable à distance mais chaque transactions coûte 
+                {{ sharedData.sharedData?.securitylevel?.l2?.distance_multiplicator }} fois plus cher
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 3</h3>
+        <ul>
+            <li>
+                Garde du corps (joueur) : Divise par {{ sharedData.sharedData?.security?.player_bodyguard_chance_divider }} la probabilité 
+                de réussite d'un vol. Disparaît après {{ sharedData.sharedData?.security?.player_bodyguard_duration }} jours.
+            </li>
+            <li>
+                Garde du corps (maison) : Divise par {{ sharedData.sharedData?.security?.house_bodyguard_chance_divider }} la probabilité 
+                de réussite d'un vol.. Disparaît après {{ sharedData.sharedData?.security?.house_bodyguard_duration }} jours.
+            </li>
+            <li>
+                Membres de la sécurité (entreprise) : Le client peut séléctionner entre 1 et {{ sharedData.sharedData?.security?.company_security_guard_max_member }} 
+                membres de sécurité, qui disparaîtront après {{ sharedData.sharedData?.security?.company_security_guard_duration }} jours.
+                La probabilité de succès d'un vol sera réduit de {{ sharedData.sharedData?.security?.company_security_guard_first_decrease_chance }}% par membres 
+                pour les {{ sharedData.sharedData?.security?.company_security_guard_first_members_count }} premiers membres, puis 
+                {{ sharedData.sharedData?.security?.company_security_guard_second_decrease_chance }}% par membres pour les autres. La quantité d'argent volée 
+                sera réduit de {{ sharedData.sharedData?.security?.company_security_guard_first_decrease_robed_quantity }}% par membres pour les 
+                {{ sharedData.sharedData?.security?.company_security_guard_first_members_count }} premiers, puis {{ sharedData.sharedData?.security?.company_security_guard_second_decrease_robed_quantity }}% 
+                par membres pour les autres.
+            </li>
+            <li>
+                Membres de la sécurité (banque) : Le client peut séléctionner entre 1 et {{ sharedData.sharedData?.security?.bank_security_guard_max_member }} 
+                membres de sécurité, qui disparaîtront après {{ sharedData.sharedData?.security?.bank_security_guard_duration }} jours.
+                La probabilité de succès d'un vol sera réduit de {{ sharedData.sharedData?.security?.bank_security_guard_first_decrease_chance }}% par membres 
+                pour les {{ sharedData.sharedData?.security?.bank_security_guard_first_members_count }} premiers membres, puis 
+                {{ sharedData.sharedData?.security?.bank_security_guard_second_decrease_chance }}% par membres pour les autres. La quantité d'argent volée 
+                sera réduit de {{ sharedData.sharedData?.security?.bank_security_guard_first_decrease_robed_quantity }}% par membres pour les 
+                {{ sharedData.sharedData?.security?.bank_security_guard_first_members_count }} premiers, puis {{ sharedData.sharedData?.security?.bank_security_guard_second_decrease_robed_quantity }}% 
+                par membres pour les autres.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l3?.resourceSafeCapacity }}kg
+            </li>
+            <li>
+                Multiplicateur de vente à distance : {{ sharedData.sharedData?.securitylevel?.l3?.distance_multiplicator }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 4</h3>
+        <ul>
+            <li>
+                Cyber-defense (entreprise) : Protège uniquement contre les cyber-attaques et fait tomber leurs probabilités de réussite à 
+                {{ sharedData.sharedData?.security?.cyberdefense_cyberattack_chance }}%, la protection ne dure que 
+                {{ sharedData.sharedData?.security?.company_cyberdefense_duration }} jours.
+            </li>
+            <li>
+                Cyber-defense (banque) : Protège uniquement contre les attaques de phishing ciblés en faisant tomber leurs probabilités 
+                de réussite à {{ sharedData.sharedData?.security?.cyberdefense_phishing_chance }}%, la protection ne dure que 
+                {{ sharedData.sharedData?.security?.bank_cyberdefense_duration }} jours.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l4?.resourceSafeCapacity }}kg
+            </li>
+            <li>
+                Multiplicateur de vente à distance : {{ sharedData.sharedData?.securitylevel?.l4?.distance_multiplicator }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 5</h3>
+        <ul>
+            <li>
+                Système anti IA (joueur) : Protège uniquement contre les vols par drône à intelligence artificielle en faisant tomber 
+                leurs probabilités de succès à {{ sharedData.sharedData?.security?.player_anti_ai_ai_drone_rob_chance }}%. Le système 
+                ne fonctionnera plus si un vol réussi.
+            </li>
+            <li>
+                Système anti IA (maison) : Protège uniquement contre les vols par drône à intelligence artificielle en faisant tomber 
+                leurs probabilités de succès à {{ sharedData.sharedData?.security?.house_anti_ai_ai_drone_rob_chance }}%. Le système 
+                ne fonctionnera plus si un vol réussi.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l5?.resourceSafeCapacity }}kg
+            </li>
+            <li>
+                Multiplicateur de vente à distance : {{ sharedData.sharedData?.securitylevel?.l5?.distance_multiplicator }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 6</h3>
+        <ul>
+            <li>
+                Système de confinement (banque) : Ne protège pas des cyber-attaques ou du phishing ciblé, mais fait tomber la 
+                probabilités de réussite de tout autre vol à {{ sharedData.sharedData?.security?.bank_containment_rob_chance }}%. De plus 
+                si un vol échoue, la mafia responsable du vol vous devra <app-player-money [money]="sharedData.sharedData?.security?.bank_containment_compensation_cost"></app-player-money>.
+                Cependant en cas d'échec d'un vol il faudra tout de même réactiver le système. En revanche si un vol réussi le système sera 
+                complétement détruit.
+            </li>
+            <li>
+                Système de confinement (entreprise) : Ne protège pas des cyber-attaques, mais fait tomber la 
+                probabilités de réussite de tout autre vol à {{ sharedData.sharedData?.security?.company_containment_rob_chance }}%. De plus 
+                si un vol échoue, la mafia responsable du vol vous devra <app-player-money [money]="sharedData.sharedData?.security?.company_containment_compensation_cost"></app-player-money>.
+                Cependant en cas d'échec d'un vol il faudra tout de même réactiver le système. En revanche si un vol réussi le système sera 
+                complétement détruit.
+            </li>
+            <li>
+                Capacité du coffre à ressources : {{ sharedData.sharedData?.securitylevel?.l6?.resourceSafeCapacity }}kg
+            </li>
+            <li>
+                Multiplicateur de vente à distance : {{ sharedData.sharedData?.securitylevel?.l6?.distance_multiplicator }}
+            </li>
+        </ul>
+    </div>
+</div>

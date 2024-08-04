@@ -6,6 +6,7 @@ import { FactoryLevels } from "./model/companylevel/factorylevels.model";
 import { MafiaLevels } from "./model/companylevel/mafialevels.model";
 import { SecurityLevels } from "./model/companylevel/securitylevels.model";
 import { MineLevel } from "./model/minelevel.model";
+import { SecurityConfig } from "./security-config.model";
 
 export class SharedData {
     constructor(
@@ -56,5 +57,7 @@ export class SharedData {
         public estate_robot_decrease_duration: number,
         public estate_robot_2_increase_price: number,
         public estate_robot_2_decrease_duration: number,
+
+        public security: SecurityConfig,
     ) {}
 }
