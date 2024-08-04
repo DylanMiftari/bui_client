@@ -40,6 +40,14 @@ import { BankAccountTransactionsComponent } from './bank/bank-account-transactio
 import { CasinoDashboardComponent } from './casino/casino-dashboard/casino-dashboard.component';
 import { CasinoLevelComponent } from './company/company-level/casino-level/casino-level.component';
 import { CasinoParamFormComponent } from './casino/casino-param-form/casino-param-form.component';
+import { MafiaDashboardComponent } from './mafia/mafia-dashboard/mafia-dashboard.component';
+import { MafiaLevelComponent } from './company/company-level/mafia-level/mafia-level.component';
+import { FactoryDashboardComponent } from './factory/factory-dashboard/factory-dashboard.component';
+import { FactoryLevelComponent } from './company/company-level/factory-level/factory-level.component';
+import { EstateDashboardComponent } from './estate/estate-dashboard/estate-dashboard.component';
+import { EstateLevelComponent } from './company/company-level/estate-level/estate-level.component';
+import { SecurityDashboardComponent } from './security/security-dashboard/security-dashboard.component';
+import { SecurityLevelComponent } from './company/company-level/security-level/security-level.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +85,14 @@ import { CasinoParamFormComponent } from './casino/casino-param-form/casino-para
     CasinoDashboardComponent,
     CasinoLevelComponent,
     CasinoParamFormComponent,
+    MafiaDashboardComponent,
+    MafiaLevelComponent,
+    FactoryDashboardComponent,
+    FactoryLevelComponent,
+    EstateDashboardComponent,
+    EstateLevelComponent,
+    SecurityDashboardComponent,
+    SecurityLevelComponent,
   ],
   imports: [
     BrowserModule,

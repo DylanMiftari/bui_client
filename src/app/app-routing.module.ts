@@ -15,6 +15,10 @@ import { ChangeCityComponent } from './city/change-city/change-city.component';
 import { BankDashboardComponent } from './bank/bank-dashboard/bank-dashboard.component';
 import { BankAccountTransactionsComponent } from './bank/bank-account-transactions/bank-account-transactions.component';
 import { CasinoDashboardComponent } from './casino/casino-dashboard/casino-dashboard.component';
+import { MafiaDashboardComponent } from './mafia/mafia-dashboard/mafia-dashboard.component';
+import { FactoryDashboardComponent } from './factory/factory-dashboard/factory-dashboard.component';
+import { EstateDashboardComponent } from './estate/estate-dashboard/estate-dashboard.component';
+import { SecurityDashboardComponent } from './security/security-dashboard/security-dashboard.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,6 +35,10 @@ const routes: Routes = [
   { path: "bank/:id", component: BankDashboardComponent, canActivate: [travelGuard] },
   { path: "bank/transactions/:accountId", component: BankAccountTransactionsComponent, canActivate: [travelGuard] },
   { path: "casino/:companyId", component: CasinoDashboardComponent, canActivate: [travelGuard]},
+  { path: "mafia/:companyId", component: MafiaDashboardComponent, canActivate: [travelGuard] },
+  { path: "factory/:companyId", component: FactoryDashboardComponent, canActivate: [travelGuard] },
+  { path: "estate/:companyId", component: EstateDashboardComponent, canActivate: [travelGuard] },
+  { path: "security/:companyId", component: SecurityDashboardComponent, canActivate: [travelGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 

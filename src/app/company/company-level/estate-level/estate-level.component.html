@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="level">
+        <h3>Level 1</h3>
+        <ul>
+            <li>
+                Vous pouvez fabriquer des yourtes
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l1?.maxNbLocation }}<br>
+                <span class="explain">
+                    * Les logements acheté par des joueurs ne compte plus dans ce compte
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 2</h3>
+        <ul>
+            <li>
+                Vous pouvez fabriquer des appartements
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l2?.maxNbLocation }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 3</h3>
+        <ul>
+            <li>
+                Vous pouvez fabriquer des maisons
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l3?.maxNbLocation }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 4</h3>
+        <ul>
+            <li>
+                Vous pouvez fabriquer des villas
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l4?.maxNbLocation }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 5</h3>
+        <ul>
+            <li>
+                Construction par robot : Permet de construire le logement {{ sharedData.sharedData?.estate_robot_decrease_duration }}% plus 
+                rapidement, mais le coût monnetaire est augmenté de {{ sharedData.sharedData?.estate_robot_increase_price }}%.
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l5?.maxNbLocation }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 6</h3>
+        <ul>
+            <li>
+                Construction par robot 2.0 : Permet de construire le logement {{ sharedData.sharedData?.estate_robot_2_decrease_duration }}% plus 
+                rapidement, mais le coût monnetaire est augmenté de {{ sharedData.sharedData?.estate_robot_2_increase_price }}%.
+            </li>
+            <li>
+                Nombre de logement louable/non-acheté maximum : {{ sharedData.sharedData?.estatelevel?.l6?.maxNbLocation }}
+            </li>
+        </ul>
+    </div>
+</div>

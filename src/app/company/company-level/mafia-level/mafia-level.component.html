@@ -1,0 +1,142 @@
+<span class="explain">
+    * Les prix de vol devront être payé par votre entreprise même si le vol échoue.<br>
+    Si des probabilités de vol sont données, elles ne prennent pas en compte les potentiels systèmes de sécurité 
+    que vous pourrez rencontrer.
+</span>
+
+<div class="container">
+    <div class="level">
+        <h3>Level 1</h3>
+        <ul>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l1?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l1?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l1?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l1?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 2</h3>
+        <ul>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l2?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l2?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l2?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l2?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 3</h3>
+        <ul>
+            <li>
+                Cyberattaque : Pour voler uniquement les entreprises de niveau {{ sharedData.sharedData?.cyberattack_min_target_level }} et plus. Ce vol 
+                vous coûtera <app-player-money [money]="sharedData.sharedData?.cyberattack_cost"></app-player-money> et aura une probabilité de suucés de 
+                base de {{ sharedData.sharedData?.cyberattack_chance }}%. La quantité d'argent volé est fix et est de <app-player-money [money]="sharedData.sharedData?.cyberattack_money_robed"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l3?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l3?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l3?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l3?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 4</h3>
+        <ul>
+            <li>
+                Vol par drône à intelligence artificiel : Pour voler les joueurs et les coffres de maison possédant plus de 
+                <app-player-money [money]="sharedData.sharedData?.ai_drone_player_min_target_money"></app-player-money>, pour les joueurs et
+                <app-player-money [money]="sharedData.sharedData?.ai_drone_house_min_target_money"></app-player-money>, pour les coffres. Les vols 
+                auront respectivement {{ sharedData.sharedData?.ai_drone_player_chance }}% et {{ sharedData.sharedData?.ai_drone_house_chance }}% de 
+                chance de réussir, ils coûteront <app-player-money [money]="sharedData.sharedData?.ai_drone_player_cost"></app-player-money> et 
+                <app-player-money [money]="sharedData.sharedData?.ai_drone_house_cost"></app-player-money>. Dans le cas d'un joueur vous pourrez 
+                récupérer entre {{ sharedData.sharedData?.ai_drone_player_min_robed_quantity }}% et {{ sharedData.sharedData?.ai_drone_player_max_robed_quantity }}% 
+                de ce qu'il possède, pour un coffre ce sera entre {{ sharedData.sharedData?.ai_drone_house_min_robed_quantity }}% et {{ sharedData.sharedData?.ai_drone_house_max_robed_quantity }}%.
+            </li>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l4?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l4?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l4?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l4?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 5</h3>
+        <ul>
+            <li>
+                Vol à l'étalage (entreprise) : Le vol coûtera <app-player-money [money]="sharedData.sharedData?.shoplifting_cost"></app-player-money> et aura 
+                une probabilité de succès de {{ sharedData.sharedData?.shoplifting_chance }}%. En cas de réussite vous gagnerez entre 
+                {{ sharedData.sharedData?.shoplifting_base_robed_money_min }} et {{ sharedData.sharedData?.shoplifting_base_robed_money_max }} le 
+                tout multiplié par le niveau de l'entreprise volée.
+            </li>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l5?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l5?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l5?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l5?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+
+    <div class="level">
+        <h3>Level 6</h3>
+        <ul>
+            <li>
+                Phishing ciblé : Pour les comptes bancaires contenant au moins <app-player-money [money]="sharedData.sharedData?.phishing_min_target_money"></app-player-money>. 
+                Le vol coûtera <app-player-money [money]="sharedData.sharedData?.phishing_cost"></app-player-money> et aura une probabilité de succès de 
+                {{ sharedData.sharedData?.phishing_chance }}%. En cas de succès vous pourrez voler {{ sharedData.sharedData?.phishing_robed_quantity }}% de 
+                ce que possède le compte.
+            </li>
+            <li>
+                Prix du vol d'un joueur : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l6?.playerRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'une entreprise : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l6?.companyRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un compte en banque : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l6?.bankAccountRobPrice"></app-player-money>
+            </li>
+            <li>
+                Prix du vol d'un coffre de maison : <app-player-money [money]="sharedData.sharedData?.mafialevel?.l6?.homeSafeRobPrice"></app-player-money>
+            </li>
+        </ul>
+    </div>
+</div>

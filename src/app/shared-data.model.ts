@@ -24,6 +24,37 @@ export class SharedData {
         public change_city_cost: number,
         public default_travel_time: number,
         public travel_tier_multiplicator: number,
-        public companylevels: Array<CompanyLevel>
+        public companylevels: Array<CompanyLevel>,
+
+        public cyberattack_min_target_level: number,
+        public cyberattack_cost: number,
+        public cyberattack_chance: number,
+        public cyberattack_money_robed: number,
+
+        public ai_drone_house_cost: number,
+        public ai_drone_house_chance: number,
+        public ai_drone_house_min_robed_quantity: number,
+        public ai_drone_house_max_robed_quantity: number,
+        public ai_drone_house_min_target_money: number,
+        public ai_drone_player_cost: number,
+        public ai_drone_player_chance: number,
+        public ai_drone_player_min_robed_quantity: number,
+        public ai_drone_player_max_robed_quantity: number,
+        public ai_drone_player_min_target_money: number,
+
+        public shoplifting_cost: number,
+        public shoplifting_chance: number,
+        public shoplifting_base_robed_money_min: number,
+        public shoplifting_base_robed_money_max: number,
+
+        public phishing_min_target_money: number,
+        public phishing_cost: number,
+        public phishing_chance: number,
+        public phishing_robed_quantity: number,
+
+        public estate_robot_increase_price: number,
+        public estate_robot_decrease_duration: number,
+        public estate_robot_2_increase_price: number,
+        public estate_robot_2_decrease_duration: number,
     ) {}
 }
