@@ -50,6 +50,10 @@ div.inline {
     max-width: 500px;
     width: 90%;
     margin: 5px auto;
+
+    div.right {
+        justify-content: flex-end;
+    }
 }
 
 div.disable {

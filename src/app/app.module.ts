@@ -48,6 +48,8 @@ import { EstateDashboardComponent } from './estate/estate-dashboard/estate-dashb
 import { EstateLevelComponent } from './company/company-level/estate-level/estate-level.component';
 import { SecurityDashboardComponent } from './security/security-dashboard/security-dashboard.component';
 import { SecurityLevelComponent } from './company/company-level/security-level/security-level.component';
+import { HomeDashboardComponent } from './home/home-dashboard/home-dashboard.component';
+import { HomeCardComponent } from './home/home-card/home-card.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { SecurityLevelComponent } from './company/company-level/security-level/s
     EstateLevelComponent,
     SecurityDashboardComponent,
     SecurityLevelComponent,
+    HomeDashboardComponent,
+    HomeCardComponent,
   ],
   imports: [
     BrowserModule,

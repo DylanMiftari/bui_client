@@ -1,0 +1,10 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<h2>Vos maisons</h2>
+<p>
+    Vous ne pourrez accéder uniquement aux maisons qui se situe dans la même ville que vous
+</p>
+
+<div class="card-container">
+    <app-home-card *ngFor="let home of appData.playerData?.homes" [home]="home"></app-home-card>
+</div>

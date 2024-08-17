@@ -1,0 +1,13 @@
+<div class="card inline">
+    <div>
+        <h3>{{ home.house?.house_type?.typeName }}</h3>
+        <img [src]="'../../../assets/images/icon/houseType/'+home.house?.houseTypeId+'.png'" 
+        [alt]="'Logo d\'un '+home.house?.house_type?.typeName" width="50px">
+    </div>
+    <div class="right">
+        <p>Frais d'entretien : <app-player-money [money]="home.rent"></app-player-money></p>
+        @if (inPlayerCity()) {
+            <p>Argent dans le coffre : <app-player-money [money]="home.moneyInSafe"></app-player-money></p>
+        }
+    </div>
+</div>
