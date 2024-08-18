@@ -50,6 +50,10 @@ import { SecurityDashboardComponent } from './security/security-dashboard/securi
 import { SecurityLevelComponent } from './company/company-level/security-level/security-level.component';
 import { HomeDashboardComponent } from './home/home-dashboard/home-dashboard.component';
 import { HomeCardComponent } from './home/home-card/home-card.component';
+import { ClientInterfaceComponent } from './company/client-interface/client-interface.component';
+import { BankClientInterfaceComponent } from './bank/bank-client-interface/bank-client-interface.component';
+import { OpenAccountComponent } from './bank/bank-client-interface/open-account/open-account.component';
+import { AccountInformationComponent } from './bank/bank-client-interface/account-information/account-information.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +101,10 @@ import { HomeCardComponent } from './home/home-card/home-card.component';
     SecurityLevelComponent,
     HomeDashboardComponent,
     HomeCardComponent,
+    ClientInterfaceComponent,
+    BankClientInterfaceComponent,
+    OpenAccountComponent,
+    AccountInformationComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+@if (error !== "") {
+    <p class="error">{{ error }}</p>
+} @else if (clientData !== undefined) {
+    <div>
+        <app-open-account [clientData]="clientData"></app-open-account>
+        <app-account-information [clientData]="clientData"></app-account-information>
+    </div>
+}

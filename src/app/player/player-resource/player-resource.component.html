@@ -1,1 +1,4 @@
-<span class="money">{{(quantity)?.toLocaleString()}}kg <img src="../../../assets/images/icon/resources.png" alt="Image de ressource" height="20px"></span>
+<span class="money">
+    {{(quantity)?.toLocaleString()}}kg {{ max !== null ? "/"+(max).toLocaleString()+"kg" : "" }}
+    <img src="../../../assets/images/icon/resources.png" alt="Image de ressource" height="20px">
+</span>

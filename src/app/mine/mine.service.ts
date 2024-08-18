@@ -26,12 +26,8 @@ export class MineService {
     return this.sharedData.sharedData.new_mine_prices[nbMine-1];
   }
 
-  public buyNewMine(): void {
-    this.http.post(`${this.sharedData.baseUrl}mine/buy`, []).subscribe(
-      response => {
-        this.playerData.reloadData();
-      }
-    )
+  public buyNewMine(): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}mine/buy`, []);
   }
 
   public getMineData(id: string): Observable<any> {

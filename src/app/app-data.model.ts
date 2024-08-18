@@ -12,6 +12,7 @@ export class AppData {
         public mines: Array<Mine>,
         public has_full_mines: boolean,
         public city: City,
-        public homes: Array<Home>
+        public homes: Array<Home>,
+        public total_money: number
     ) {}
 }

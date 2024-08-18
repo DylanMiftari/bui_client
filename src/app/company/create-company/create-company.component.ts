@@ -4,6 +4,7 @@ import { CompanyService } from '../company.service';
 import { AppDataService } from '../../app-data.service';
 import { Router } from '@angular/router';
 import { BuiServiceService } from '../../bui-service.service';
+import { LoadingService } from '../../loading.service';
 
 @Component({
   selector: 'app-create-company',
@@ -31,15 +32,19 @@ export class CreateCompanyComponent {
   public formError = '';
 
   constructor(public sharedData: SharedDataService, private companyService: CompanyService,
-    private appDataService: AppDataService, private router: Router, private buiService: BuiServiceService) {}
+    private appDataService: AppDataService, private router: Router, private buiService: BuiServiceService, 
+  private loading: LoadingService) {}
 
   public createCompany() {
+    this.loading.startLoading();
     this.companyService.createCompany(this.companyData).subscribe(
       response => {
+        this.loading.endLoading();
         this.appDataService.reloadData();
         this.router.navigate(['/company/dashboard']);
       },
       error => {
+        this.loading.endLoading();
         this.formError = this.buiService.extractErrorMessage(error);
       }
     )

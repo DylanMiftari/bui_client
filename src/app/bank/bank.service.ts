@@ -26,4 +26,12 @@ export class BankService {
       "maxAccountResource": maxResources
     });
   }
+
+  public getBankClientData(idCompany: number): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}bank/client/${idCompany}`);
+  }
+
+  public openAccount(idBank: number): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}bank/client/${idBank}/open-account`, {});
+  }
 }

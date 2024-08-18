@@ -16,6 +16,7 @@ export class MineDetailComponent {
   public id: string | null;
   public mine: Mine | undefined;
   public error: string = "";
+  public upgradeError: string = "";
   public priceForNextLevel: number | undefined;
 
   public collectError: string = "";
@@ -51,6 +52,10 @@ export class MineDetailComponent {
     this.mineService.upgradeMine(this.id!).subscribe(
       response => {
         window.location.reload();
+      },
+      error => {
+        this.upgradeError = this.buiService.extractErrorMessage(error);
+        this.loading.endLoading();
       }
     );
   }

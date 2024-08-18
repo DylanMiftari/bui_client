@@ -1,0 +1,39 @@
+<div class="open-account form" *ngIf="clientData.account === null">
+    <h3>Ouvrir un compte</h3>
+
+    <div class="field">
+        <p>
+            <span>Frais de tenu de compte (hebdomadaire) : </span>
+            <app-player-money [money]="clientData.bank.accountMaintenanceCost"></app-player-money>
+        </p>
+    </div>
+
+    <div class="field">
+        <p><span>Taux de transfert : </span>{{ clientData.bank.transferCost }}%</p>
+        <p class="explain">À chaque transaction la banque gardera un certains pourcentage pour elle</p>
+    </div>
+
+    <div class="field">
+        <p>
+            <span>Argent maximum sur le compte : </span>
+            <app-player-money [money]="clientData.bank.maxAccountMoney"></app-player-money>
+        </p>
+    </div>
+
+    <div class="field">
+        <p>
+            <span>Quantité de ressources maximales : </span>
+            <app-player-resource [quantity]="clientData.bank.maxAccountResource"></app-player-resource>
+        </p>
+    </div>
+
+    <div class="field">
+        <p class="explain">* Vous pourrez toujours contacter le propriétaire de la banque pour changer ces valeurs, après l'ouverture du compte</p>
+    </div>
+
+    <p class="error">{{ openAccountError }}</p>
+
+    <div class="field">
+        <button class="center" (click)="openAccount()">Ouvrir un compte</button>
+    </div>
+</div>

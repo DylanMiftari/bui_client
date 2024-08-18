@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PlayerResourceComponent {
   @Input() quantity: number | undefined;
+  @Input() max: number | null = null;
 }

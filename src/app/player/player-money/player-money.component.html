@@ -1,1 +1,4 @@
-<span class="money">{{(money)?.toLocaleString()}} <img src="../../../assets/images/icon/money.png" alt="Image de pièce" height="20px"></span>
+<span class="money">
+    {{(money)?.toLocaleString()}} {{ max !== null ? "/"+(max).toLocaleString() : "" }}
+    <img src="../../../assets/images/icon/money.png" alt="Image de pièce" height="20px">
+</span>

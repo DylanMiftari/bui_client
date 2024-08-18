@@ -1,0 +1,13 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<p class="page-error" *ngIf="error !== ''">{{ error }}</p>
+
+<div *ngIf="error === '' && company !== undefined">
+    <app-company-info [company]="company" [fromClient]="true"></app-company-info>
+
+    @switch (company.company_type) {
+        @case ("bank") {
+            <app-bank-client-interface [company]="company"></app-bank-client-interface>
+        }
+    }
+</div>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Company } from '../company.model';
 import { SharedDataService } from '../../shared-data.service';
+import { AppDataService } from '../../app-data.service';
 
 @Component({
   selector: 'app-company-list',
@@ -15,7 +16,7 @@ export class CompanyListComponent {
   public companyType: string = "";
   public companyLevel: string = "";
 
-  constructor(public sharedData: SharedDataService) {}
+  constructor(public sharedData: SharedDataService, public appData: AppDataService) {}
 
   public getFilteredCompanies(): Array<Company> {
     if(this.companyList === undefined) {
@@ -35,5 +36,30 @@ export class CompanyListComponent {
     }
 
     return res;
+  }
+
+  public getCompanyLink(company: Company) {
+    if(this.appData.playerData === undefined) {
+      return "";
+    }
+    if(this.appData.playerData.player.id !== company.id_player) {
+      return "/client/"+company.id;
+    }
+    switch(company.company_type) {
+      case "bank":
+        return "/bank/"+company.id;
+      case "casino":
+        return "/casino/"+company.id;
+      case "mafia":
+        return "/mafia/"+company.id;
+      case "factory":
+        return "/factory/"+company.id;
+      case "estate_agency":
+        return "/estate/"+company.id;
+      case "security":
+        return "/security/"+company.id;
+      default:
+        return "";
+    }
   }
 }

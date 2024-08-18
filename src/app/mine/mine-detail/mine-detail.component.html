@@ -39,6 +39,8 @@
             <div class="card disable" *ngIf="mine?.level !== undefined && sharedData.sharedData !== undefined && mine?.level! >= sharedData.sharedData.max_mine_level">
                 <h2>Niveau max</h2>
             </div>
+
+            <p class="error">{{ upgradeError }}</p>
         </div>
     </div>
 

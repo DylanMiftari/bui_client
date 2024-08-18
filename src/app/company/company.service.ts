@@ -21,6 +21,10 @@ export class CompanyService {
   getCompany(idCompany: number): Observable<any> {
     return this.http.get(`${this.baseUrl}company/${idCompany}`);
   }
+
+  getCompanyFromClient(idCompany: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}company/client/${idCompany}`);
+  }
  
   createCompany(data: any): Observable<any> {
     return this.http.post(`${this.baseUrl}company`, data);

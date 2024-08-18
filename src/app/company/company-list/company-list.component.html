@@ -11,7 +11,7 @@
 }
 
 <div class="card-container">
-    <div class="card inline" *ngFor="let company of getFilteredCompanies()">
+    <div class="card inline" *ngFor="let company of getFilteredCompanies()" [routerLink]="[getCompanyLink(company)]">
         <div class="main">
             <h1>{{ company.name }}</h1>
             <img [src]="'../../../assets/images/icon/company-type-icon/'+company.company_type+'.png'" 

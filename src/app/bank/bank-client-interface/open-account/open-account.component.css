@@ -1,0 +1,8 @@
+div.open-account {
+    h3 {
+        text-align: center;
+    }
+    div.field {
+        margin: 10px 0;
+    }
+}

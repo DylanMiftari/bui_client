@@ -20,6 +20,7 @@ import { FactoryDashboardComponent } from './factory/factory-dashboard/factory-d
 import { EstateDashboardComponent } from './estate/estate-dashboard/estate-dashboard.component';
 import { SecurityDashboardComponent } from './security/security-dashboard/security-dashboard.component';
 import { HomeDashboardComponent } from './home/home-dashboard/home-dashboard.component';
+import { ClientInterfaceComponent } from './company/client-interface/client-interface.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: "estate/:companyId", component: EstateDashboardComponent, canActivate: [travelGuard] },
   { path: "security/:companyId", component: SecurityDashboardComponent, canActivate: [travelGuard] },
   { path: "homes", component: HomeDashboardComponent, canActivate: [travelGuard]},
+  { path: "client/:companyId", component: ClientInterfaceComponent, canActivate: [travelGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 

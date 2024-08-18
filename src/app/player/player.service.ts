@@ -13,7 +13,7 @@ export class PlayerService {
   constructor(private appData: AppDataService) {}
 
   public checkMoney(cost: number | undefined): boolean {
-    let totalMoney: number | undefined = this.appData.playerData?.player.playerMoney;
+    let totalMoney: number | undefined = this.appData.playerData?.total_money;
     return totalMoney !== undefined && cost !== undefined && totalMoney >= cost;
   }
 }
