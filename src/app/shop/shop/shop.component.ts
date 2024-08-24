@@ -29,7 +29,7 @@ export class ShopComponent {
       allResource: this.resourceService.getAllResources()
     }).subscribe(
       responses => {
-        this.playerResourceList = responses.playerResource;
+        this.playerResourceList = Object.values(responses.playerResource);
         this.allResources = responses.allResource;
         loading.endLoading();
       }
