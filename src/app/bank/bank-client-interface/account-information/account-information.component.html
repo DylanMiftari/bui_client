@@ -2,13 +2,13 @@
     <h3>Informations sur le compte</h3>
     <div class="content">
         <div class="left">
-            <p>Argent sur le compte : <app-player-money [money]="clientData.account.money" [max]="clientData.account.maxMoney"></app-player-money></p>
-            <p>Frais de tenu de compte (hebdomadaire) : <app-player-money [money]="clientData.account.accountMaintenanceCost"></app-player-money></p>
-            <p>Date d'ouverture du compte : {{ clientData.account.created_at | date : "dd/MM/Y" }}</p>
+            <p>Argent sur le compte : <app-player-money [money]="bankAccount.money" [max]="bankAccount.maxMoney"></app-player-money></p>
+            <p>Frais de tenu de compte (hebdomadaire) : <app-player-money [money]="bankAccount.accountMaintenanceCost"></app-player-money></p>
+            <p>Date d'ouverture du compte : {{ bankAccount.created_at | date : "dd/MM/Y" }}</p>
         </div>
         <div class="right">
-            <p>Quantité de ressource sur le compte : <app-player-resource [quantity]="getTotalResource()" [max]="clientData.account.maxResource"></app-player-resource></p>
-            <p>Taux de transfert : {{ clientData.account.transferCost }}%</p>
+            <p>Quantité de ressource sur le compte : <app-player-resource [quantity]="getTotalResource()" [max]="bankAccount.maxResource"></app-player-resource></p>
+            <p>Taux de transfert : {{ bankAccount.transferCost }}%</p>
         </div>
     </div>
     <p class="explain">* Le taux de transfert est la quantité d'argent que conservera la banque, pour elle, à chaque transaction</p>

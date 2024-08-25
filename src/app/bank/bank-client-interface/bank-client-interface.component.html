@@ -3,6 +3,6 @@
 } @else if (clientData !== undefined) {
     <div>
         <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
-        <app-account-information [clientData]="clientData" *ngIf="clientData.account !== null"></app-account-information>
+        <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
     </div>
 }

@@ -54,6 +54,7 @@ import { ClientInterfaceComponent } from './company/client-interface/client-inte
 import { BankClientInterfaceComponent } from './bank/bank-client-interface/bank-client-interface.component';
 import { OpenAccountComponent } from './bank/bank-client-interface/open-account/open-account.component';
 import { AccountInformationComponent } from './bank/bank-client-interface/account-information/account-information.component';
+import { PlayerAccountListComponent } from './player/player-account-list/player-account-list.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { AccountInformationComponent } from './bank/bank-client-interface/accoun
     BankClientInterfaceComponent,
     OpenAccountComponent,
     AccountInformationComponent,
+    PlayerAccountListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+h2 {
+    text-align: center;
+}
+p {
+    margin: 5px;
+    font-size: 0.9em;
+}
+div.card-container {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+div.card-container:hover {
+    transform: scaleY(1.1);
+}

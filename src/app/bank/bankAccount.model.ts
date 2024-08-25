@@ -10,9 +10,11 @@ export class BankAccount {
         public money: number,
         public maxMoney: number,
         public maxResource: number,
+        public bankId: number,
         public created_at: Date,
         public player: Player | undefined,
         public bank_resource_account: Array<bankResourceAccount> | undefined,
         public transactions: Array<BankAccountTransaction> | undefined,
+        public companyId: number,
     ) {}
 }

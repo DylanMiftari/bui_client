@@ -1,0 +1,12 @@
+@if (bankAccounts.length === 0) {
+    <h2 class="page-error">
+        Vous n'avez aucun compte bancaire, <a [routerLink]="['/city']">cliquz ici pour voir les banques de votre ville</a>
+    </h2>
+} @else {
+    <h2>Vos comptes bancaires</h2>
+    <p class="explain">*Cliquez sur un compte pour ouvrir l'interface client de la banque</p>
+    <div class="card-container">
+        <app-account-information [bankAccount]="bankAccount" *ngFor="let bankAccount of bankAccounts"
+        [routerLink]="['/client/'+bankAccount.companyId]"></app-account-information>
+    </div>
+}

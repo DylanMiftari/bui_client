@@ -30,4 +30,8 @@ export class BankAccountService {
   public getAccountWith(bankAccountId: number, withP: string): Observable<any> {
     return this.http.get(`${this.sharedData.baseUrl}bank/account/${bankAccountId}?with=${withP}`);
   }
+
+  public getAccountsOfUser(): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}player/bank-accounts?with=companyId`);
+  }
 }
