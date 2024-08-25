@@ -4,7 +4,7 @@ form, div.form {
     border-radius: 20px;
     padding: 10px;
     width: 90%;
-    margin: 0 auto;
+    margin: 10px auto;
     div {
         padding: 5px 0;
     }
@@ -27,6 +27,21 @@ form, div.form {
     }
     label {
         display: block;
+    }
+
+    .button-box {
+        display: flex;
+    }
+    .inline-button-box {
+        flex-direction: row;
+        justify-content: space-around;
+        button {
+            width: 40%;
+            min-width: 50px;
+        }
+    }
+    .align {
+        text-align: center;
     }
 }
 

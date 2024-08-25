@@ -34,4 +34,8 @@ export class BankAccountService {
   public getAccountsOfUser(): Observable<any> {
     return this.http.get(`${this.sharedData.baseUrl}player/bank-accounts?with=companyId`);
   }
+
+  public creditAccount(bankId: number, money: number): Observable<any> {
+    return this.http.patch(`${this.sharedData.baseUrl}bank/client/${bankId}/credit`, {"money": money});
+  }
 }

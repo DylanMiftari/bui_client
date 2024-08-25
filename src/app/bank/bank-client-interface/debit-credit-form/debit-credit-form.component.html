@@ -1,0 +1,14 @@
+
+<form>
+    <h2 class="align">Retrait / Dépôt</h2>
+    <p class="explain">Vous avez, sur vous : <app-player-money [money]="playerData.playerData?.player?.playerMoney"></app-player-money></p>
+    <div>
+        <label for="money">Montant de la transaction</label>
+        <input type="number" name="money" id="money" min="0" step="1000" [(ngModel)]="money">
+    </div>
+    <p class="error">{{ error }}</p>
+    <div class="button-box inline-button-box">
+        <button>Retirer</button>
+        <button (click)="creditAccount()">Déposer</button>
+    </div>
+</form>

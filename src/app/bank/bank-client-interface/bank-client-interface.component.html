@@ -4,5 +4,6 @@
     <div>
         <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
         <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
+        <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>
     </div>
 }
