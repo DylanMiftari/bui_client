@@ -33,4 +33,17 @@ export class DebitCreditFormComponent {
       }
     )
   }
+
+  public debitAccount() {
+    this.loading.startLoading();
+    this.bankAccountService.debitAccount(this.clientData.bank.id, this.money).subscribe(
+      response => {
+        window.location.reload();
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error);
+        this.loading.endLoading();
+      }
+    )
+  }
 }

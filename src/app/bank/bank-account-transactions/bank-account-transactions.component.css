@@ -1,3 +1,15 @@
 ul {
     margin: 10px 25px;
 }
+div.card {
+    max-width: 750px;
+    div.right {
+        margin: 15px 0;
+    }
+}
+div.credit {
+    background: #75a36d;
+}
+div.debit {
+    background: #a36d6d;
+}

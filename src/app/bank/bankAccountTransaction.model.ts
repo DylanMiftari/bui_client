@@ -4,6 +4,7 @@ export class BankAccountTransaction {
         public money: number,
         public description: string,
         public created_at: Date,
-        public transfert_cost: number
+        public transfert_cost: number,
+        public isCredit: boolean
     ) {}
 }

@@ -38,4 +38,8 @@ export class BankAccountService {
   public creditAccount(bankId: number, money: number): Observable<any> {
     return this.http.patch(`${this.sharedData.baseUrl}bank/client/${bankId}/credit`, {"money": money});
   }
+
+  public debitAccount(bankId: number, money: number): Observable<any> {
+    return this.http.patch(`${this.sharedData.baseUrl}bank/client/${bankId}/debit`, {"money": money});
+  }
 }

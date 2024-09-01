@@ -7,8 +7,10 @@
         <input type="number" name="money" id="money" min="0" step="1000" [(ngModel)]="money">
     </div>
     <p class="error">{{ error }}</p>
+    <p>En cas de retrait vous payerez <app-player-money [money]="money * (1+clientData.account.transferCost/100)"></app-player-money> 
+        dû au taux de transfert</p>
     <div class="button-box inline-button-box">
-        <button>Retirer</button>
+        <button (click)="debitAccount()">Retirer</button>
         <button (click)="creditAccount()">Déposer</button>
     </div>
 </form>
