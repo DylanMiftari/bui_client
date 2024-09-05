@@ -16,5 +16,6 @@ export class BankAccount {
         public bank_resource_account: Array<bankResourceAccount> | undefined,
         public transactions: Array<BankAccountTransaction> | undefined,
         public companyId: number,
+        public isEnable: boolean,
     ) {}
 }

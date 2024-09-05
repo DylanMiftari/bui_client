@@ -11,6 +11,7 @@
                 <p><span>Taux de transfert : </span>{{ bankAccount.transferCost }}</p>
                 <p><span>Argent maximum : </span>{{ bankAccount.maxMoney.toLocaleString() }}</p>
                 <p><span>Ressources maximum : </span>{{ bankAccount.maxResource }}kg</p>
+                <p><span>Status : </span>{{ bankAccount.isEnable ? "Activé" : "Désactiver" }}</p>
             </div>
 
             <div class="right">

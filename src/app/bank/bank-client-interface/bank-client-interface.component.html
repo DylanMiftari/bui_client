@@ -2,6 +2,10 @@
     <p class="error">{{ error }}</p>
 } @else if (clientData !== undefined) {
     <div>
+        <p *ngIf="!clientData.account.isEnable">
+            Votre compte a été désactivé car vous n'avez pas pu régler les frais hebdomadaires. 
+            Vous ne perdez rien, votre compte sera réactivé à la fin de la semaine si vous régler les frais hebdomadaire.
+        </p>
         <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
         <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
         <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>

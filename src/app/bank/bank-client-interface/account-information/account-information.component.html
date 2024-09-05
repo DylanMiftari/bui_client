@@ -5,6 +5,7 @@
             <p>Argent sur le compte : <app-player-money [money]="bankAccount.money" [max]="bankAccount.maxMoney"></app-player-money></p>
             <p>Frais de tenu de compte (hebdomadaire) : <app-player-money [money]="bankAccount.accountMaintenanceCost"></app-player-money></p>
             <p>Date d'ouverture du compte : {{ bankAccount.created_at | date : "dd/MM/Y" }}</p>
+            <p>Status : {{ bankAccount.isEnable ? "Activé" : "Désactiver" }}</p>
         </div>
         <div class="right">
             <p>Quantité de ressource sur le compte : <app-player-resource [quantity]="getTotalResource()" [max]="bankAccount.maxResource"></app-player-resource></p>
