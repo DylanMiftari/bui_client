@@ -1,0 +1,18 @@
+<form>
+    <h2 class="align">Demande de prêt</h2>
+    <p>La banque vous prête de l'argent pour une grosse dépense, mais vous devrez rembourser ce prêt petit à petit. En payant chaque semaine</p>
+
+    <div>
+        <label for="money">Montant du prêt</label>
+        <input type="number" name="money" id="money" step="10000" min="0" [(ngModel)]="money">
+    </div>
+    <div>
+        <label for="weeklypayment">Proposition de sommes pour la paiments hebdomadaires</label>
+        <span class="explain"> * Chaque semaine vous payerez pour le remoursement du prêt</span>
+        <input type="number" name="weeklypayment" id="weeklypayment" step="1000" min="0" [(ngModel)]="weeklypayment">
+    </div>
+    <div>
+        <label for="description">Description (décrivez pourquoi vous avez besoin de cet argent)</label>
+        <textarea name="description" id="description" [(ngModel)]="description"></textarea>
+    </div>
+</form>

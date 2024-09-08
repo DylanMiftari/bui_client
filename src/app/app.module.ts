@@ -56,6 +56,7 @@ import { OpenAccountComponent } from './bank/bank-client-interface/open-account/
 import { AccountInformationComponent } from './bank/bank-client-interface/account-information/account-information.component';
 import { PlayerAccountListComponent } from './player/player-account-list/player-account-list.component';
 import { DebitCreditFormComponent } from './bank/bank-client-interface/debit-credit-form/debit-credit-form.component';
+import { CreditRequestFormComponent } from './bank/bank-client-interface/credit-request-form/credit-request-form.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { DebitCreditFormComponent } from './bank/bank-client-interface/debit-cre
     AccountInformationComponent,
     PlayerAccountListComponent,
     DebitCreditFormComponent,
+    CreditRequestFormComponent,
   ],
   imports: [
     BrowserModule,

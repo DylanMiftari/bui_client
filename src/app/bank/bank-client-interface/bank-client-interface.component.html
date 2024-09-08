@@ -9,5 +9,6 @@
         <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
         <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
         <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>
+        <app-credit-request-form [clientData]="clientData" *ngIf="clientData.bank.level >= env.min_banklevel_for_credit"></app-credit-request-form>
     </div>
 }

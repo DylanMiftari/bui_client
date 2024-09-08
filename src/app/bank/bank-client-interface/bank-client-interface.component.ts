@@ -6,6 +6,7 @@ import { Bank } from '../bank.model';
 import { forkJoin } from 'rxjs';
 import { BankService } from '../bank.service';
 import { BuiServiceService } from '../../bui-service.service';
+import { EnvService } from '../../env.service';
 
 @Component({
   selector: 'app-bank-client-interface',
@@ -19,7 +20,9 @@ export class BankClientInterfaceComponent implements OnInit {
 
   public clientData: BankClient | undefined;
 
-  constructor(private loading: LoadingService, private bankService: BankService, private buiService: BuiServiceService) {
+  constructor(private loading: LoadingService, private bankService: BankService, private buiService: BuiServiceService,
+    public env: EnvService
+  ) {
   }
 
   ngOnInit(): void {
