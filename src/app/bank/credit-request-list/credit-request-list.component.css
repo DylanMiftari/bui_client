@@ -1,0 +1,5 @@
+p {
+    width: 100%;
+    align-self: flex-start;
+    text-align: left !important;
+}

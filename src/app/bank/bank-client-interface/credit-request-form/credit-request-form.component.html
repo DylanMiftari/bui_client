@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="sendCreditRequest()">
     <h2 class="align">Demande de prêt</h2>
     <p>La banque vous prête de l'argent pour une grosse dépense, mais vous devrez rembourser ce prêt petit à petit. En payant chaque semaine</p>
 
@@ -12,7 +12,19 @@
         <input type="number" name="weeklypayment" id="weeklypayment" step="1000" min="0" [(ngModel)]="weeklypayment">
     </div>
     <div>
+        <p *ngIf="nbWeek() !== 0">Il vous faudra donc {{ nbWeek() }} semaines pour rembourser votre prêt</p>
+    </div>
+    <div>
         <label for="description">Description (décrivez pourquoi vous avez besoin de cet argent)</label>
-        <textarea name="description" id="description" [(ngModel)]="description"></textarea>
+        <textarea name="description" id="description" [(ngModel)]="description" placeholder="J'ai besoin de ce prêt afin de..."></textarea>
+    </div>
+
+    <div>
+        <p class="error" *ngIf="error !== ''">{{ error }}</p>
+        <p class="valid" *ngIf="valid !== ''">{{ valid }}</p>
+    </div>
+
+    <div class="button-box center-button-box">
+        <button>Envoyer votre demande</button>
     </div>
 </form>

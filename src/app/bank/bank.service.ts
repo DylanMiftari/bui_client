@@ -34,4 +34,16 @@ export class BankService {
   public openAccount(idBank: number): Observable<any> {
     return this.http.post(`${this.sharedData.baseUrl}bank/client/${idBank}/open-account`, {});
   }
+
+  public getCreditRequest(idBank: number): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}bank/client/${idBank}/credit-request`);
+  }
+
+  public makeCreditRequest(idBank: number, money: number, description: string, weeklyPayment: number): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}bank/client/${idBank}/credit-request`, {
+      "money": money,
+      "description": description,
+      "weeklypayment": weeklyPayment
+    });
+  }
 }

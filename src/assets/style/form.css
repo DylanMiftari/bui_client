@@ -32,6 +32,9 @@ form, div.form {
     .button-box {
         display: flex;
     }
+    .center-button-box {
+        justify-content: center;
+    }
     .inline-button-box {
         flex-direction: row;
         justify-content: space-around;

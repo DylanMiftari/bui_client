@@ -6,6 +6,9 @@
             Votre compte a été désactivé car vous n'avez pas pu régler les frais hebdomadaires. 
             Vous ne perdez rien, votre compte sera réactivé à la fin de la semaine si vous régler les frais hebdomadaire.
         </p>
+        <div class="menu">
+            <button [routerLink]="['/client/'+clientData.bank.idCompany+'/credit-request']">Accéder à mes demandes de prêt</button>
+        </div>
         <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
         <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
         <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>

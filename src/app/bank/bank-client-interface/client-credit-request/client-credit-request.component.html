@@ -1,0 +1,6 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+<p class="page-error" *ngIf="error !== ''">{{ error }}</p>
+
+<h2>Liste de vos demande de prêt</h2>
+<app-credit-request-list [creditRequestList]="creditRequestList"></app-credit-request-list>

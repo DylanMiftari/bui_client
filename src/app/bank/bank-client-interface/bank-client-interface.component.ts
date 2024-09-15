@@ -11,7 +11,7 @@ import { EnvService } from '../../env.service';
 @Component({
   selector: 'app-bank-client-interface',
   templateUrl: './bank-client-interface.component.html',
-  styleUrls: ["../../../assets/style/form.css", './bank-client-interface.component.css']
+  styleUrls: ["../../../assets/style/form.css", "../../../assets/style/menu.css",'./bank-client-interface.component.css']
 })
 export class BankClientInterfaceComponent implements OnInit {
   @Input() company!: Company;

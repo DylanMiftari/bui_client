@@ -23,6 +23,7 @@ import { HomeDashboardComponent } from './home/home-dashboard/home-dashboard.com
 import { ClientInterfaceComponent } from './company/client-interface/client-interface.component';
 import { BankAccountListComponent } from './bank/bank-account-list/bank-account-list.component';
 import { PlayerAccountListComponent } from './player/player-account-list/player-account-list.component';
+import { ClientCreditRequestComponent } from './bank/bank-client-interface/client-credit-request/client-credit-request.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: "homes", component: HomeDashboardComponent, canActivate: [travelGuard]},
   { path: "client/:companyId", component: ClientInterfaceComponent, canActivate: [travelGuard]},
   { path: "bankaccounts", component: PlayerAccountListComponent, canActivate: [travelGuard] },
+  { path: "client/:companyId/credit-request", component: ClientCreditRequestComponent, canActivate: [travelGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 
