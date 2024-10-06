@@ -9,6 +9,7 @@ import { EnvService } from '../../env.service';
 })
 export class CreditRequestListComponent {
   @Input() public creditRequestList: Array<CreditRequest> = [];
+  @Input() public fromClient: boolean = true;
 
   constructor() {}
 

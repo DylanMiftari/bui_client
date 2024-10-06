@@ -8,11 +8,13 @@
         <button (click)="changePage('company')">Informations générales de la banque</button>
         <button (click)="changePage('param')">Paramètre de la banque</button>
         <button (click)="changePage('accounts')">Liste des comptes</button>
+        <button (click)="changePage('creditRequests')" *ngIf="bank !== undefined && bank.level >= env.min_banklevel_for_credit">Liste des demandes de prêts</button>
     </div>
     <hr>
     <div class="view">
         <app-company-info [company]="company" *ngIf="page === 'company'"></app-company-info>
         <app-bank-param-form [bank]="bank" *ngIf="page === 'param' && bank !== undefined"></app-bank-param-form>
         <app-bank-account-list [bank]="bank" *ngIf="page === 'accounts' && bank !== undefined"></app-bank-account-list>
+        <app-bank-credit-request-list [bank]="bank" *ngIf="page === 'creditRequests'"></app-bank-credit-request-list>
     </div>
 </div>

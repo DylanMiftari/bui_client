@@ -47,6 +47,9 @@ div.bigcard {
     min-width: 300px;
     max-width: 900px;
 }
+div.card-not-hover {
+    cursor: default;
+}
 
 div.inline {
     flex-direction: row;
@@ -77,6 +80,9 @@ div.disable {
 }
 div.card:hover {
     transform: scale(1.1);
+}
+div.card-not-hover:hover {
+    transform: scale(1);
 }
 
 div.left {

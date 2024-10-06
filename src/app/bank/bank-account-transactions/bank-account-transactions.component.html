@@ -18,8 +18,9 @@
 
     <h2>Transactions</h2>
     <div class="card-container reverse">
-        <div class="card inline {{ transaction.isCredit ? 'credit' : 'debit' }}" *ngFor="let transaction of bankAccount?.transactions">
+        <div class="card inline {{ transaction.isCredit ? 'credit' : 'debit' }} card-not-hover" *ngFor="let transaction of bankAccount?.transactions">
             <div class="left">
+                <p>Transaction n° {{ transaction.id }}</p>
                 <p><span>Date : </span>{{ transaction.created_at | date : 'dd/MM/yyyy HH:mm:ss' }}</p>
                 <p><span>Montant : </span><app-player-money [money]="transaction.money"></app-player-money></p>
                 <p><span>Coût de transfert : </span><app-player-money [money]="transaction.transfert_cost"></app-player-money></p>

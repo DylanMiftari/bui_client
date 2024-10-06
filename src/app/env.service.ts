@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EnvService {
-  public min_banklevel_for_credit: number = 3;
+  public min_banklevel_for_credit: number = 2;
 }

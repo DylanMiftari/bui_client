@@ -18,6 +18,10 @@ export class BankService {
     return this.http.get(`${this.sharedData.baseUrl}bank/${idBank}/accounts`);
   }
 
+  public getCreditRequests(idBank:number): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}bank/${idBank}/credit-request`);
+  }
+
   public editBank(idBank: number, accountMaintenance: number, transfertRate: number, maxMoney: number, maxResources: number): Observable<any> {
     return this.http.put(`${this.sharedData.baseUrl}bank/edit/${idBank}`, {
       "accountMaintenanceCost": accountMaintenance,

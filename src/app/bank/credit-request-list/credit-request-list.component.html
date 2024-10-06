@@ -1,8 +1,9 @@
 <div class="card-container">
-    <div class="card bigcard" *ngFor="let creditRequest of creditRequestList">
+    <div class="card bigcard card-not-hover" *ngFor="let creditRequest of creditRequestList">
         <h4>Demande de prêt n°{{ creditRequest.id }}</h4>
         <div class="subcard">
             <div class="left">
+                <p *ngIf="!fromClient">Demande de : {{ creditRequest.player!.pseudo }}</p>
                 <p>Argent demandé : <app-player-money [money]="creditRequest.money"></app-player-money></p>
                 <p>Paiment hebdomadaire : <app-player-money [money]="creditRequest.weeklypayment"></app-player-money></p>
             </div>

@@ -1,17 +1,23 @@
 @if (error !== "") {
     <p class="error">{{ error }}</p>
 } @else if (clientData !== undefined) {
-    <div>
-        <p *ngIf="!clientData.account.isEnable">
-            Votre compte a été désactivé car vous n'avez pas pu régler les frais hebdomadaires. 
-            Vous ne perdez rien, votre compte sera réactivé à la fin de la semaine si vous régler les frais hebdomadaire.
-        </p>
-        <div class="menu">
-            <button [routerLink]="['/client/'+clientData.bank.idCompany+'/credit-request']">Accéder à mes demandes de prêt</button>
+    @if(clientData.account !== null) {
+        <div>
+            <p *ngIf="!clientData.account.isEnable">
+                Votre compte a été désactivé car vous n'avez pas pu régler les frais hebdomadaires. 
+                Vous ne perdez rien, votre compte sera réactivé à la fin de la semaine si vous régler les frais hebdomadaire.
+            </p>
+            <div class="menu">
+                <button [routerLink]="['/client/'+clientData.bank.idCompany+'/credit-request']"
+                *ngIf="clientData.bank.level >= env.min_banklevel_for_credit">Accéder à mes demandes de prêt</button>
+            </div>
+            <app-account-information [bankAccount]="clientData.account"></app-account-information>
+            <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>
+            <app-credit-request-form [clientData]="clientData" *ngIf="clientData.bank.level >= env.min_banklevel_for_credit"></app-credit-request-form>
         </div>
-        <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
-        <app-account-information [bankAccount]="clientData.account" *ngIf="clientData.account !== null"></app-account-information>
-        <app-debit-credit-form [clientData]="clientData"></app-debit-credit-form>
-        <app-credit-request-form [clientData]="clientData" *ngIf="clientData.bank.level >= env.min_banklevel_for_credit"></app-credit-request-form>
-    </div>
+    } @else {
+        <div>
+            <app-open-account [clientData]="clientData" *ngIf="clientData.account === null"></app-open-account>
+        </div>
+    }
 }

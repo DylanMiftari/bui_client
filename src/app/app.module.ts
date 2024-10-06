@@ -59,6 +59,7 @@ import { DebitCreditFormComponent } from './bank/bank-client-interface/debit-cre
 import { CreditRequestFormComponent } from './bank/bank-client-interface/credit-request-form/credit-request-form.component';
 import { CreditRequestListComponent } from './bank/credit-request-list/credit-request-list.component';
 import { ClientCreditRequestComponent } from './bank/bank-client-interface/client-credit-request/client-credit-request.component';
+import { BankCreditRequestListComponent } from './bank/bank-credit-request-list/bank-credit-request-list.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { ClientCreditRequestComponent } from './bank/bank-client-interface/clien
     CreditRequestFormComponent,
     CreditRequestListComponent,
     ClientCreditRequestComponent,
+    BankCreditRequestListComponent,
   ],
   imports: [
     BrowserModule,

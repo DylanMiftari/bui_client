@@ -1,3 +1,5 @@
+import { Player } from "../player/player.model";
+
 export class CreditRequest {
     constructor(
         public id: number,
@@ -9,6 +11,7 @@ export class CreditRequest {
         public created_at: Date,
         public updated_at: Date,
         public description: string,
-        public weeklypayment: number
+        public weeklypayment: number,
+        public player: Player | undefined
     ) {}
 }

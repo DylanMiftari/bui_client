@@ -6,6 +6,7 @@ import { forkJoin } from 'rxjs';
 import { Company } from '../../company/company.model';
 import { Bank } from '../bank.model';
 import { BankService } from '../bank.service';
+import { EnvService } from '../../env.service';
 
 @Component({
   selector: 'app-bank-dashboard',
@@ -23,7 +24,7 @@ export class BankDashboardComponent {
   public bank: Bank | undefined;
 
   constructor (private route: ActivatedRoute, private loading: LoadingService, private companyService: CompanyService, 
-    private bankService: BankService) {
+    private bankService: BankService, public env: EnvService) {
     // URL param
     this.loading.startLoading();
     this.id = this.route.snapshot.paramMap.get("id");
