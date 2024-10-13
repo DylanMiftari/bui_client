@@ -27,6 +27,7 @@ form, div.form {
     }
     label {
         display: block;
+        font-weight: bold;
     }
 
     .button-box {
@@ -46,6 +47,11 @@ form, div.form {
     .align {
         text-align: center;
     }
+}
+
+.without-background {
+    background-color: transparent;
+    border: none;
 }
 
 input, select {

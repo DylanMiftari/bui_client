@@ -11,6 +11,9 @@ export class CreditRequestListComponent {
   @Input() public creditRequestList: Array<CreditRequest> = [];
   @Input() public fromClient: boolean = true;
 
+  // Form var
+  public rate: number = 0;
+
   constructor() {}
 
   public getCreditRequestStatus(status: string) {

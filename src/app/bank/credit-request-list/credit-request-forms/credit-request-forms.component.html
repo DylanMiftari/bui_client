@@ -1,0 +1,26 @@
+<form class="without-background">
+    @if (creditRequest.status === "wait on bank" && !fromClient) {
+        <div>
+            <label for="rate">Définir un taux pour le prêt :</label>
+            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate"><span>%</span>
+            <p>Argent que devra rembourser le client : <app-player-money [money]="getMoneyToPay()"></app-player-money></p>
+        </div>
+
+        <div>
+            <label for="money">Revoir l'argent demandé :</label>
+            <input type="number" name="money" id="money" min="0" step="10000" [(ngModel)]="money">
+        </div>
+
+        <div>
+            <label for="weeklyPayments">Revoir les paiements hebdomadaires :</label>
+            <input type="number" name="weeklyPayments" id="weeklyPayments" min="0" step="1000" [(ngModel)]="weeklyPayments">
+            <p>Nombre de semaine nécessaire au remboursement : {{ getNbWeek() }}</p>
+        </div>
+
+        <div>
+            <label for="commentary">Ajouter un commentaire :</label>
+            <textarea name="commentary" id="commentary" placeholder="Indiquez vos changements et/ou potentielles revendications" [(ngModel)]="commentary"></textarea>
+            <button (click)="generateCommentary()">Génération automatique</button>
+        </div>
+    }
+</form>

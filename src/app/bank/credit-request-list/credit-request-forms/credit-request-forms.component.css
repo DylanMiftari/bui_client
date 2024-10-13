@@ -1,0 +1,11 @@
+form {
+    margin-left: 0;
+
+    textarea {
+        height: 75px;
+        max-height: 325px;
+        width: 35%;
+        min-width: 250px;
+        max-width: 95%;
+    }
+}
