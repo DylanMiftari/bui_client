@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CreditRequest } from '../../creditRequest.model';
+import { BankService } from '../../bank.service';
+import { BuiServiceService } from '../../../bui-service.service';
 
 @Component({
   selector: 'app-credit-request-forms',
@@ -16,7 +18,9 @@ export class CreditRequestFormsComponent implements OnInit {
   public weeklyPayments: number = 1000;
   public commentary: string = "";
 
-  constructor() {}
+  public error: string = "";
+
+  constructor(private bankService: BankService, private buiService: BuiServiceService) {}
 
   ngOnInit(): void {
     this.money = this.creditRequest.money;
@@ -39,5 +43,22 @@ export class CreditRequestFormsComponent implements OnInit {
     if(this.weeklyPayments !== this.creditRequest.weeklypayment) {
       this.commentary += `J'ai changé la somme de vos paiements hebdomadaire, elle était de ${this.creditRequest.weeklypayment.toLocaleString()} et est passée à ${this.weeklyPayments.toLocaleString()} dans le but de ...\n\n`;
     }
+  }
+
+  public updateCreditRequest(status: string) {
+    this.bankService.updateCreditRequest(this.creditRequest.bankId, this.creditRequest.id, this.rate, this.money, this.weeklyPayments, 
+      this.commentary, status
+    ).subscribe(
+      response => {
+        this.creditRequest.rate = this.rate;
+        this.creditRequest.money = this.money;
+        this.creditRequest.weeklypayment = this.weeklyPayments;
+        this.creditRequest.description += ("\n-------------\n"+this.commentary);
+        this.creditRequest.status = status;
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
   }
 }

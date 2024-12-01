@@ -20,6 +20,8 @@ export class CreditRequestListComponent {
     switch(status) {
       case "wait on bank":
         return "En attente de la banque";
+      case "wait on client":
+        return "En attente du client";
       default:
         return "";
     }

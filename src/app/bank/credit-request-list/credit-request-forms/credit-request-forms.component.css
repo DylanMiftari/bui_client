@@ -8,4 +8,13 @@ form {
         min-width: 250px;
         max-width: 95%;
     }
+
+    p.explain {
+        margin: 5px 0 0 5px;
+    }
+
+    button.send {
+        margin: 5px 0;
+        font-size: 1.0em;
+    }
 }

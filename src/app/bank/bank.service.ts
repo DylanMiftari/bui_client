@@ -50,4 +50,16 @@ export class BankService {
       "weeklypayment": weeklyPayment
     });
   }
+
+  public updateCreditRequest(idBank: number, idCreditRequest: number, rate: number|null, money: number|null, 
+    weeklyPayments: number|null, description: string|null, status: string|null
+  ): Observable<any> {
+    return this.http.patch(`${this.sharedData.baseUrl}bank/${idBank}/credit-request/${idCreditRequest}`, {
+      "rate": rate,
+      "money": money,
+      "weeklyPayments": weeklyPayments,
+      "description": description,
+      "status": status
+    });
+  }
 }

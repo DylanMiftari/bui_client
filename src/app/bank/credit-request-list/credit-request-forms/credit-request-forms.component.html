@@ -22,5 +22,15 @@
             <textarea name="commentary" id="commentary" placeholder="Indiquez vos changements et/ou potentielles revendications" [(ngModel)]="commentary"></textarea>
             <button (click)="generateCommentary()">Génération automatique</button>
         </div>
+
+        <div>
+            <button class="send" (click)="updateCreditRequest('wait on client')">Enregistrer et proposer les modifications au client</button>
+            <p class="explain">
+                Si le client accepte les modifications il pourra directement encaisser l'argent du prêt<br>
+                Cet argent sera retirer de votre coffre et placé sur son compte
+            </p>
+        </div>
+
+        <p class="error">{{ error }}</p>
     }
 </form>
