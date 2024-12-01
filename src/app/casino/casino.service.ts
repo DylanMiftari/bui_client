@@ -14,6 +14,10 @@ export class CasinoService {
     return this.http.get(`${this.sharedData.baseUrl}casino/${idCompany}?with=${withP}`);
   }
 
+  public getCasinoClient(idCompany: number): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}casino/client/${idCompany}`);
+  }
+
   public updateTicketsPrice(idCasino: number, ticketPrice: number, VIPTicketPrice: number): Observable<any> {
     return this.http.patch(`${this.sharedData.baseUrl}casino/${idCasino}/tickets`, {
       "ticketPrice": ticketPrice,

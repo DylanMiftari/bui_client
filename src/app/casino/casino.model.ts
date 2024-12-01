@@ -7,6 +7,8 @@ export class Casino {
         public VIPTicketPrice: number,
         public level: number,
         public created_at: Date,
-        public casinolevel: CasinoLevel | undefined
+        public casinolevel: CasinoLevel | undefined,
+        public ticketCount: number | undefined,
+        public VIPTicketCount: number | undefined
     ) {}
 }

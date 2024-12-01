@@ -1,0 +1,20 @@
+@if (error !== "") {
+    <p class="page-error">{{ error }}</p>
+} @else if(casinoClient !== undefined) {
+    @if (casinoClient.ticket === null) {
+        <div class="buy-ticket">
+            <h3>Acheter un ticket pour jouer dans ce casino !</h3>
+            <p>Place restante : {{ casinoClient.casino.casinolevel!.nbMaxTicket - casinoClient.casino!.ticketCount! }}</p>
+            <div class="button-box">
+                <button>
+                    Ticket
+                    <app-player-money [money]="casinoClient.casino.ticketPrice"></app-player-money>
+                </button>
+                <button *ngIf="casinoClient.casino.level >= env.min_casinolevel_vip">
+                    Ticket VIP
+                    <app-player-money [money]="casinoClient.casino.VIPTicketPrice"></app-player-money>
+                </button>
+            </div>
+        </div>
+    }
+}
