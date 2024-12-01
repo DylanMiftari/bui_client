@@ -2,19 +2,27 @@
     <p class="page-error">{{ error }}</p>
 } @else if(casinoClient !== undefined) {
     @if (casinoClient.ticket === null) {
-        <div class="buy-ticket">
+        <div class="buy-ticket form center">
             <h3>Acheter un ticket pour jouer dans ce casino !</h3>
-            <p>Place restante : {{ casinoClient.casino.casinolevel!.nbMaxTicket - casinoClient.casino!.ticketCount! }}</p>
+            <p>Nombre de tickets restant : {{ getRemainTicket() }}</p>
+            <p>Nombre de tickets VIP restant : {{ getRemainVIPTicket() }}</p>
             <div class="button-box">
-                <button>
-                    Ticket
-                    <app-player-money [money]="casinoClient.casino.ticketPrice"></app-player-money>
+                <button (click)="buyTicket(false)">
+                    Ticket : <app-player-money [money]="casinoClient.casino.ticketPrice"></app-player-money>
                 </button>
-                <button *ngIf="casinoClient.casino.level >= env.min_casinolevel_vip">
-                    Ticket VIP
-                    <app-player-money [money]="casinoClient.casino.VIPTicketPrice"></app-player-money>
+                <button *ngIf="casinoClient.casino.level >= env.min_casinolevel_vip" (click)="buyTicket(true)">
+                    Ticket VIP : <app-player-money [money]="casinoClient.casino.VIPTicketPrice"></app-player-money>
                 </button>
             </div>
+            <p class="error">{{ buyError }}</p>
+            <p class="explain">
+                Les tickets sont valables pendant {{ env.casino_ticket_expired_after_days }} jours
+            </p>
+            <p class="explain">
+                Les tickets VIP vous permet d'accéder aux jeux en mode VIP. Les tickets coûtent plus cher mais vous pouvez miser plus 
+                et aussi gagner plus.<br>
+                (Selon ce que le propriétaire à choisi)
+            </p>
         </div>
     }
 }

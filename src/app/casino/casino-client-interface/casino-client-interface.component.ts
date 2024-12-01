@@ -9,12 +9,13 @@ import { EnvService } from '../../env.service';
 @Component({
   selector: 'app-casino-client-interface',
   templateUrl: './casino-client-interface.component.html',
-  styleUrl: './casino-client-interface.component.css'
+  styleUrls: ["../../../assets/style/form.css", './casino-client-interface.component.css']
 })
 export class CasinoClientInterfaceComponent implements OnInit {
   @Input() company!: Company;
 
   public error: string = "";
+  public buyError: string = "";
 
   public casinoClient: CasinoClient|undefined;
 
@@ -34,5 +35,30 @@ export class CasinoClientInterfaceComponent implements OnInit {
         this.loadingService.endLoading();
       }
     )
+  }
+
+  getRemainTicket(): number {
+    if (this.casinoClient === undefined || this.casinoClient.casino.casinolevel === undefined || this.casinoClient.casino.ticketCount == undefined) {
+      return 0;
+    }
+    return this.casinoClient.casino.casinolevel.nbMaxTicket - this.casinoClient.casino.ticketCount;
+  }
+
+  getRemainVIPTicket(): number {
+    if (this.casinoClient === undefined || this.casinoClient.casino.casinolevel === undefined || this.casinoClient.casino.VIPTicketCount == undefined) {
+      return 0;
+    }
+    return this.casinoClient.casino.casinolevel.nbMaxVIPTicket - this.casinoClient.casino.VIPTicketCount;
+  }
+
+  buyTicket(isVIP: boolean) {
+    this.casinoService.buyTicket(this.company.id, this.casinoClient!.casino.id, isVIP).subscribe(
+      response => {
+        window.location.reload();
+      },
+      error => {
+        this.buyError = this.buiService.extractErrorMessage(error);
+      }
+    );
   }
 }
