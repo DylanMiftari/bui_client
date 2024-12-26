@@ -1,0 +1,38 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+@if (error !== "") {
+    <p class="page-error">{{ error }}</p>
+} @else {
+    
+    <h1>Jeu de la roulette</h1>
+    <h4>Attention : Assurez vous de pouvoir stocket vos gains. Si vous ne pouvez pas stocker un gain, il sera perdu</h4>
+    <div class="rules">
+        <p><span>Mise maximale : </span><app-player-money [money]="getMaxBet()"></app-player-money></p>
+        <p><span>Gain en cas de suite (123, 456, 987, 012...) : </span>{{ getSequenceMultiplicator().toLocaleString() }} fois la mise de départ</p>
+        <p><span>Gain en cas de triplet (000, 111, ... 999) : </span>{{ getTripletMultiplicator().toLocaleString() }} fois la mise de départ</p>
+        <p><span>Gain en cas de triple 7 (777) : </span>{{ getTripleSeventMultiplicator().toLocaleString() }} fois la mise de départ</p>
+    </div>
+
+    <div class="number">
+        <span>{{number1}}</span>
+        <span>{{number2}}</span>
+        <span>{{number3}}</span>
+    </div>
+
+    <div class="bet">
+        <h2>Votre mise :</h2>
+        <div class="actions">
+            <button (click)="decreaseBet()">-</button>
+            <input type="number" name="bet" id="bet" [(ngModel)]="bet" min="0" [max]="getMaxBet()" [step]="getMaxBet() / 10">
+            <button (click)="increaseBet()">+</button>
+        </div>
+    </div>
+
+    <div class="play">
+        <button (click)="clickOnPlay()">
+            {{ buttonText }}
+        </button>
+        <p class="error">{{ playError }}</p>
+        <p class="result" [style]="'color: ' + resultMessageColor + ';'">{{resultMessage}}</p>
+    </div>
+}

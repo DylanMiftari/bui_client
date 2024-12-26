@@ -62,6 +62,7 @@ import { ClientCreditRequestComponent } from './bank/bank-client-interface/clien
 import { BankCreditRequestListComponent } from './bank/bank-credit-request-list/bank-credit-request-list.component';
 import { CreditRequestFormsComponent } from './bank/credit-request-list/credit-request-forms/credit-request-forms.component';
 import { CasinoClientInterfaceComponent } from './casino/casino-client-interface/casino-client-interface.component';
+import { CasinoRouletteComponent } from './casino/casino-client-interface/roulette/casino-roulette/casino-roulette.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { CasinoClientInterfaceComponent } from './casino/casino-client-interface
     BankCreditRequestListComponent,
     CreditRequestFormsComponent,
     CasinoClientInterfaceComponent,
+    CasinoRouletteComponent,
   ],
   imports: [
     BrowserModule,

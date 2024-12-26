@@ -1,0 +1,95 @@
+h1 {
+    padding-top: 10px;
+}
+h4 {
+    margin: 10px 0;
+}
+div.rules {
+    margin: 5px 10px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+div.number {
+    width: 60%;
+    min-width: 300px;
+    min-height: 150px;
+    margin: 25px auto;
+    border: solid red 3px;
+    background-color: var(--middle-light-grey);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    span {
+        user-select: none;
+        display: block;
+        border: solid rgba(160, 160, 160, 0.6) 1px;
+        font-size: 10em;
+        font-weight: bold;
+        width: 33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    :nth-child(1) {
+        color: red;
+        border-radius: 25px 0 0 25px;
+    }
+    :nth-child(2) {
+        color: yellow;
+    }
+    :nth-child(3) {
+        color: blue;
+        border-radius: 0 25px 25px 0;
+    }
+}
+
+div.bet {
+    width: 100%;
+    margin: 25px auto;
+
+    div.actions {
+        width: 60%;
+        min-width: 300px;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        button {
+            font-size: 2em;
+            padding: 0 10px;
+        }
+        input {
+            width: 80px;
+            min-width: 225px;
+        }
+    }
+}
+
+div.play {
+    width: 60%;
+    min-width: 300px;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+        font-size: 1.7em;
+    }
+    p {
+        text-align: center;
+        font-size: 1.2em;
+    }
+    p.result {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 10px 0;
+    }
+}

@@ -9,7 +9,7 @@ import { EnvService } from '../../env.service';
 @Component({
   selector: 'app-casino-client-interface',
   templateUrl: './casino-client-interface.component.html',
-  styleUrls: ["../../../assets/style/form.css", './casino-client-interface.component.css']
+  styleUrls: ["../../../assets/style/form.css", "../../../assets/style/card.css", './casino-client-interface.component.css']
 })
 export class CasinoClientInterfaceComponent implements OnInit {
   @Input() company!: Company;

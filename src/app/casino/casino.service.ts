@@ -18,6 +18,10 @@ export class CasinoService {
     return this.http.get(`${this.sharedData.baseUrl}casino/client/${idCompany}`);
   }
 
+  public getCasinoClientFromCasinoId(idCasino: number): Observable<any> {
+    return this.http.get(`${this.sharedData.baseUrl}casino/casino/${idCasino}`);
+  }
+
   public buyTicket(idCompany: number, idCasino: number, isVIP: boolean): Observable<any> {
     return this.http.post(`${this.sharedData.baseUrl}casino/client/${idCompany}/${idCasino}/buy-ticket`, {
       "isVIP": isVIP
@@ -29,5 +33,9 @@ export class CasinoService {
       "ticketPrice": ticketPrice,
       "VIPTicketPrice": VIPTicketPrice
     });
+  }
+
+  public playRoulette(idCasino: number, bet: number): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}casino/${idCasino}/game/roulette`, {"bet": bet});
   }
 }
