@@ -38,4 +38,8 @@ export class CasinoService {
   public playRoulette(idCasino: number, bet: number): Observable<any> {
     return this.http.post(`${this.sharedData.baseUrl}casino/${idCasino}/game/roulette`, {"bet": bet});
   }
+
+  public playDice(idCasino: number, bet: number): Observable<any> {
+    return this.http.post(`${this.sharedData.baseUrl}casino/${idCasino}/game/dice`, {"bet": bet});
+  }
 }

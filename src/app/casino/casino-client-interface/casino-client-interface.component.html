@@ -26,11 +26,19 @@
         </div>
     } @else {
         <h3 class="casino-game">Jeux du casino</h3>
-        <div class="card-container" [routerLink]="['/casino/'+casinoClient.casino.id+'/roulette']">
-            <div class="card roulette" *ngIf="casinoClient.casino.level >= env.casino_level_for_roulette">
+        <div class="card-container">
+            <div class="card roulette" *ngIf="casinoClient.casino.level >= env.casino_level_for_roulette" 
+                [routerLink]="['/casino/'+casinoClient.casino.id+'/roulette']">
                 <h1>Roulette</h1>
                 <img src="../../../assets/images/icon/casino-game/slots.png" alt="Image de la roulette">
                 <p>Tournez la roulette pour obtenir une suite, un triplet ou même le triple 7</p>
+            </div>
+
+            <div class="card roulette" *ngIf="casinoClient.casino.level >= env.casino_level_for_dice"
+                [routerLink]="['/casino/'+casinoClient.casino.id+'/dice']">
+                <h1>Jeu des dés</h1>
+                <img src="../../../assets/images/icon/casino-game/dice.png" alt="Image de dés">
+                <p>Lancer deux dés et obtenez le bon résultat</p>
             </div>
         </div>
     }

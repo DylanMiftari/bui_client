@@ -19,5 +19,12 @@ export class Casino {
         public rouletteVIPTripletMultiplcator: number,
         public rouletteTripleSeventMultiplicator: number,
         public rouletteVIPTripleSeventMultiplicator: number,
+
+        public diceGoal: number,
+        public diceWinMultiplicator: number,
+        public diceMaxBet: number,
+        public diceVIPGoal: number,
+        public diceVIPWinMultiplicator: number,
+        public diceVIPMaxBet: number,
     ) {}
 }

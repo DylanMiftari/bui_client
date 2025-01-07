@@ -1,0 +1,41 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+@if (error !== "") {
+    <p class="page-error">{{ error }}</p>
+} @else {
+    <h1>Jeu des dés</h1>
+
+    <h4>Attention : Assurez vous de pouvoir stocket vos gains. Si vous ne pouvez pas stocker un gain, il sera perdu</h4>
+    <div class="rules">
+        <p><span>Mise maximale : </span><app-player-money [money]="getMaxBet()"></app-player-money></p>
+        <p><span>Nombre cible : </span>{{ getDiceGoal() }}</p>
+        <p><span>Gain possible avec le nombre cible : </span>{{ getDiceWinMultiplicator() }} fois votre mise</p>
+    </div>
+
+    <div class="dices">
+        <div class="dice">{{ dice1 }}</div>
+        <div class="dice">{{ dice2 }}</div>
+    </div>
+    <div class="dice-buttons">
+        <button *ngIf="dice1Interval !== null" (click)="stopDice1()">Arrêter</button>
+        <button *ngIf="dice2Interval !== null" (click)="stopDice2()">Arrêter</button>
+    </div>
+    <div class="total">Total : {{ dice1 + dice2 }}</div>
+
+    <div class="bet">
+        <h2>Votre mise :</h2>
+        <div class="actions">
+            <button (click)="decreaseBet()">-</button>
+            <input type="number" name="bet" id="bet" [(ngModel)]="bet" min="0" [max]="getMaxBet()" [step]="getMaxBet() / 10">
+            <button (click)="increaseBet()">+</button>
+        </div>
+    </div>
+
+    <div class="play">
+        <button (click)="clickOnPlay()" [disabled]="gameStep !== 'start'">
+            {{ buttonText }}
+        </button>
+        <p class="error">{{ playError }}</p>
+        <p class="result" [style]="'color: ' + resultMessageColor + ';'">{{resultMessage}}</p>
+    </div>
+}
