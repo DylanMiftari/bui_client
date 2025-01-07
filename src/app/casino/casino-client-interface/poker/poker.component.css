@@ -1,0 +1,129 @@
+h1 {
+    padding-top: 10px;
+}
+h4 {
+    margin: 10px 0;
+}
+div.rules {
+    margin: 5px 10px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+div.bet {
+    width: 100%;
+    margin: 25px auto;
+
+    div.actions {
+        width: 60%;
+        min-width: 300px;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        button {
+            font-size: 2em;
+            padding: 0 10px;
+        }
+        input {
+            width: 80px;
+            min-width: 225px;
+        }
+    }
+}
+
+div.game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 20px 0;
+
+    div.card-pack {
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 175px;
+        height: 250px;
+        background-color: #333333;
+        color: #555555;
+        border: solid 10px #dddddd;
+        font-size: 10em;
+        font-weight: bold;
+        border-radius: 25px;
+        margin: 5px;
+    }
+    div.drawed-card {
+        position: relative;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 175px;
+        height: 250px;
+        background-color: #dddddd;
+        font-size: 10em;
+        font-weight: bold;
+        border-radius: 25px;
+        margin: 5px;
+    }
+    img.card-icon {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 30px;
+    }
+}
+div.card-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px 0;
+    button {
+        width: 175px;
+        font-size: 2em;
+        margin: 5px;
+    }
+}
+
+div.play {
+    width: 60%;
+    min-width: 300px;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+        font-size: 1.7em;
+    }
+    p {
+        text-align: center;
+        font-size: 1.2em;
+    }
+    p.result {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 10px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    div.game {
+      div.card-pack {
+        width: 90px;
+        height: 135px;
+        font-size: 4em;
+      }
+      div.drawed-card {
+        width: 90px;
+        height: 135px;
+        font-size: 4em;
+      }
+    }
+  }

@@ -9,4 +9,5 @@ export class EnvService {
   public casino_ticket_expired_after_days: number = 7;
   public casino_level_for_roulette: number = 1;
   public casino_level_for_dice: number = 2;
+  public casino_level_for_poker: number = 3;
 }

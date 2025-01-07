@@ -38,7 +38,14 @@
                 [routerLink]="['/casino/'+casinoClient.casino.id+'/dice']">
                 <h1>Jeu des dés</h1>
                 <img src="../../../assets/images/icon/casino-game/dice.png" alt="Image de dés">
-                <p>Lancer deux dés et obtenez le bon résultat</p>
+                <p>Lancez deux dés et obtenez le bon résultat</p>
+            </div>
+
+            <div class="card roulette" *ngIf="casinoClient.casino.level >= env.casino_level_for_poker"
+                [routerLink]="['/casino/'+casinoClient.casino.id+'/poker']">
+                <h1>Solo poker</h1>
+                <img src="../../../assets/images/icon/casino-game/poker-cards.png" alt="Image de carte de poker">
+                <p>Piochez 5 cartes et gagnez en fonction de votre main</p>
             </div>
         </div>
     }

@@ -1,0 +1,79 @@
+<app-connected-dashboard></app-connected-dashboard>
+
+@if (error !== "") {
+    <p class="page-error">{{ error }}</p>
+} @else {
+    <h1>Jeu du solo poker</h1>
+
+    <h4>Attention : Assurez vous de pouvoir stocket vos gains. Si vous ne pouvez pas stocker un gain, il sera perdu</h4>
+    <div class="rules">
+        <p><span>Piochez une main de 5 cartes et remportez en fonction de votre main</span></p>
+        <p><span>Mise maximale : </span><app-player-money [money]="getMaxBet()"></app-player-money></p>
+    </div>
+
+    <div class="game">
+        @if (gameStep === 'start') {
+            <div class="card-pack">B</div>
+        } @else {
+            <div class="card-pack card-to-draw" [style]="'color:'+cardTextColors[0]">
+                <img [src]="cardIcons[0]" alt="Icon de la carte" class="card-icon" *ngIf="cardTexts[0] !== 'B'">
+                {{ cardTexts[0] }}
+            </div>
+            <div class="card-pack card-to-draw" [style]="'color:'+cardTextColors[1]">
+                <img [src]="cardIcons[1]" alt="Icon de la carte" class="card-icon" *ngIf="cardTexts[1] !== 'B'">
+                {{ cardTexts[1] }}
+            </div>
+            <div class="card-pack card-to-draw" [style]="'color:'+cardTextColors[2]">
+                <img [src]="cardIcons[2]" alt="Icon de la carte" class="card-icon" *ngIf="cardTexts[2] !== 'B'">
+                {{ cardTexts[2] }}
+            </div>
+            <div class="card-pack card-to-draw" [style]="'color:'+cardTextColors[3]">
+                <img [src]="cardIcons[3]" alt="Icon de la carte" class="card-icon" *ngIf="cardTexts[3] !== 'B'">
+                {{ cardTexts[3] }}
+            </div>
+            <div class="card-pack card-to-draw" [style]="'color:'+cardTextColors[4]">
+                <img [src]="cardIcons[4]" alt="Icon de la carte" class="card-icon" *ngIf="cardTexts[4] !== 'B'">
+                {{ cardTexts[4] }}
+            </div>
+        }
+    </div>
+    <div class="card-buttons" *ngIf="gameStep === 'draw card'">
+        <button (click)="drawCard(0)">Retourner</button>
+        <button (click)="drawCard(1)">Retourner</button>
+        <button (click)="drawCard(2)">Retourner</button>
+        <button (click)="drawCard(3)">Retourner</button>
+        <button (click)="drawCard(4)">Retourner</button>
+    </div>
+
+    <div class="bet">
+        <h2>Votre mise :</h2>
+        <div class="actions">
+            <button (click)="decreaseBet()">-</button>
+            <input type="number" name="bet" id="bet" [(ngModel)]="bet" min="0" [max]="getMaxBet()" [step]="getMaxBet() / 10">
+            <button (click)="increaseBet()">+</button>
+        </div>
+    </div>
+
+    <div class="play">
+        <button (click)="clickOnPlay()" [disabled]="gameStep !== 'start' && gameStep !== 'finish'">
+            {{ buttonText }}
+        </button>
+        <p class="error">{{ playError }}</p>
+        <p class="result" [style]="'color: ' + resultMessageColor + ';'">{{resultMessage}}</p>
+    </div>
+
+
+    <h4>Gain en fonction des mains</h4>
+    <div class="rules">
+        <p><span>Carte haute (rien) : </span>{{ getNothingMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Paire (2 cartes avec la même valeur) : </span>{{ getOnePairMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Double Paire (2 paires différentes) : </span>{{ getTwoPairMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Brelan (3 cartes avec la même valeur) : </span>{{ getThreeOfAKindMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Suite (Les valeurs de toutes les cartes se suivent) : </span>{{ getStraightMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Couleur (Toutes les cartes ont la même couleur) : </span>{{ getFlushMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Full (Un brelan et une paire) : </span>{{ getFullHouseMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Carré (4 cartes de la même valeur) : </span>{{ getFourOfAKindMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Quinte flush (Une suite avec toutes les cartes de la même couleur) : </span>{{ getStraightFlushMultiplicator().toLocaleString() }} fois votre mise</p>
+        <p><span>Quinte flush Royale (Une quinte flush comme suit : 10-Valet-Dame-Roi-As) : </span>{{ getRoyalFlushMultiplicator().toLocaleString() }} fois votre mise</p>
+    </div>
+}

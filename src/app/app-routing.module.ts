@@ -26,6 +26,7 @@ import { PlayerAccountListComponent } from './player/player-account-list/player-
 import { ClientCreditRequestComponent } from './bank/bank-client-interface/client-credit-request/client-credit-request.component';
 import { CasinoRouletteComponent } from './casino/casino-client-interface/roulette/casino-roulette/casino-roulette.component';
 import { DiceComponent } from './casino/casino-client-interface/dice/dice.component';
+import { PokerComponent } from './casino/casino-client-interface/poker/poker.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: "client/:companyId/credit-request", component: ClientCreditRequestComponent, canActivate: [travelGuard] },
   { path: "casino/:casinoId/roulette", component: CasinoRouletteComponent, canActivate: [travelGuard] },
   { path: "casino/:casinoId/dice", component: DiceComponent, canActivate: [travelGuard] },
+  { path: "casino/:casinoId/poker", component: PokerComponent, canActivate: [travelGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirection par défaut
 ];
 
