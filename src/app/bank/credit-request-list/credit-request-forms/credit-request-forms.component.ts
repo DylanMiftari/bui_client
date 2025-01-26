@@ -36,17 +36,35 @@ export class CreditRequestFormsComponent implements OnInit {
   }
 
   public generateCommentary() {
-    this.commentary = `J'ai fixé le taux du prêt à ${this.rate}%\n\n`;
+    let pronon = this.fromClient ? "En tant que client, " : "En tant que banque, "
+    this.commentary = `${pronon} j'ai fixé le taux du prêt à ${this.rate}%\n\n`;
     if(this.money !== this.creditRequest.money) {
-      this.commentary += `J'ai passé la quantité d'argent demandée de ${this.creditRequest.money.toLocaleString()} à ${this.money.toLocaleString()} car ...\n\n`;
+      this.commentary += `${pronon} j'ai passé la quantité d'argent demandée de ${this.creditRequest.money.toLocaleString()} à ${this.money.toLocaleString()} car ...\n\n`;
     }
     if(this.weeklyPayments !== this.creditRequest.weeklypayment) {
-      this.commentary += `J'ai changé la somme de vos paiements hebdomadaire, elle était de ${this.creditRequest.weeklypayment.toLocaleString()} et est passée à ${this.weeklyPayments.toLocaleString()} dans le but de ...\n\n`;
+      this.commentary += `${pronon} j'ai changé la somme de vos paiements hebdomadaire, elle était de ${this.creditRequest.weeklypayment.toLocaleString()} et est passée à ${this.weeklyPayments.toLocaleString()} dans le but de ...\n\n`;
     }
   }
 
   public updateCreditRequest(status: string) {
     this.bankService.updateCreditRequest(this.creditRequest.bankId, this.creditRequest.id, this.rate, this.money, this.weeklyPayments, 
+      this.commentary, status
+    ).subscribe(
+      response => {
+        this.creditRequest.rate = this.rate;
+        this.creditRequest.money = this.money;
+        this.creditRequest.weeklypayment = this.weeklyPayments;
+        this.creditRequest.description += ("\n-------------\n"+this.commentary);
+        this.creditRequest.status = status;
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
+  }
+
+  public updateCreditRequestFromClient(status: string) {
+    this.bankService.updateCreditRequestFromClient(this.creditRequest.bankId, this.creditRequest.id, this.rate, this.money, this.weeklyPayments, 
       this.commentary, status
     ).subscribe(
       response => {

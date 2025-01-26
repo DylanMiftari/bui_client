@@ -32,5 +32,35 @@
         </div>
 
         <p class="error">{{ error }}</p>
+    } @else if(creditRequest.status === "wait on client" && fromClient) {
+        <div>
+            <label for="rate">Proposer un nouveau taux pour le prêt :</label>
+            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate"><span>%</span>
+            <p>Argent que devra rembourser le client : <app-player-money [money]="getMoneyToPay()"></app-player-money></p>
+        </div>
+
+        <div>
+            <label for="money">Modifier la somme demandée :</label>
+            <input type="number" name="money" id="money" min="0" step="10000" [(ngModel)]="money">
+        </div>
+
+        <div>
+            <label for="weeklyPayments">Proposer de nouveaux paiements hebdomadaires :</label>
+            <input type="number" name="weeklyPayments" id="weeklyPayments" min="0" step="1000" [(ngModel)]="weeklyPayments">
+            <p>Nombre de semaine nécessaire au remboursement : {{ getNbWeek() }}</p>
+        </div>
+
+        <div>
+            <label for="commentary">Ajouter un commentaire :</label>
+            <textarea name="commentary" id="commentary" placeholder="Indiquez vos changements et/ou potentielles revendications" [(ngModel)]="commentary"></textarea>
+            <button (click)="generateCommentary()">Génération automatique</button>
+        </div>
+
+        <div>
+            <button class="send" (click)="updateCreditRequestFromClient('wait on bank')">Enregistrer et proposer les modifications à la banque</button>
+            <p class="explain">
+                En cliquant sur ce bouton, votre demande de prêt devra passer par une nouvelle étape de validation de la part de la banque
+            </p>
+        </div>
     }
 </form>
