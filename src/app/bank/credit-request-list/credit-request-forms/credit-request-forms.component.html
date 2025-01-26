@@ -2,7 +2,7 @@
     @if (creditRequest.status === "wait on bank" && !fromClient) {
         <div>
             <label for="rate">Définir un taux pour le prêt :</label>
-            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate"><span>%</span>
+            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate" style="width: 75px;"><span style="margin-left: 5px;">%</span>
             <p>Argent que devra rembourser le client : <app-player-money [money]="getMoneyToPay()"></app-player-money></p>
         </div>
 
@@ -45,7 +45,7 @@
     } @else if(creditRequest.status === "wait on client" && fromClient) {
         <div>
             <label for="rate">Proposer un nouveau taux pour le prêt :</label>
-            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate"><span>%</span>
+            <input type="number" min="0" step="1" name="rate" id="rate" [(ngModel)]="rate" style="width: 75px;"><span style="margin-left: 5px;">%</span>
             <p>Argent que devra rembourser le client : <app-player-money [money]="getMoneyToPay()"></app-player-money></p>
         </div>
 

@@ -3,6 +3,9 @@ p, div.form {
     align-self: flex-start;
     text-align: left !important;
 }
+h4 {
+    font-size: 1.3em;
+}
 
 @media only screen and (max-width: 600px) {
     p {

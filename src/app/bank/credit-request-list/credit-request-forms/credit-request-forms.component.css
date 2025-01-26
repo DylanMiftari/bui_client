@@ -1,6 +1,7 @@
 form {
     margin: 0;
     padding: 0;
+    width: 100%;
 
     textarea {
         height: 75px;
@@ -17,6 +18,11 @@ form {
     button.send {
         margin: 5px 0;
         font-size: 1.0em;
+        padding: 5px 10px;
+    }
+
+    textarea {
+        border-radius: 5px 20px 5px 20px;
     }
 }
 
