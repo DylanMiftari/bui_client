@@ -22,6 +22,8 @@ export class CreditRequestListComponent {
         return "En attente de la banque";
       case "wait on client":
         return "En attente du client";
+      case "reject":
+        return "Rejeté";
       default:
         return "";
     }

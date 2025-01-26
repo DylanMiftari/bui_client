@@ -102,3 +102,8 @@ UTILS CLASS
     font-size: 0.7em;
     display: block;
 }
+
+hr.separator {
+    margin: 15px auto;
+    width: 90%;
+}

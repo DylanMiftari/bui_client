@@ -63,6 +63,18 @@ export class CreditRequestFormsComponent implements OnInit {
     )
   }
 
+  public rejectCreditRequest() {
+    this.bankService.rejectCreditRequest(this.creditRequest.bankId, this.creditRequest.id, this.commentary).subscribe(
+      response => {
+        this.creditRequest.status = "reject";
+        this.creditRequest.description += ("\n-------------\n"+this.commentary);
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
+  }
+
   public updateCreditRequestFromClient(status: string) {
     this.bankService.updateCreditRequestFromClient(this.creditRequest.bankId, this.creditRequest.id, this.rate, this.money, this.weeklyPayments, 
       this.commentary, status

@@ -47,6 +47,11 @@ div.bigcard {
     min-width: 300px;
     max-width: 900px;
 }
+@media only screen and (max-width: 600px) {
+    div.bigcard {
+        width: 95vw;
+    }
+}
 div.card-not-hover {
     cursor: default;
 }

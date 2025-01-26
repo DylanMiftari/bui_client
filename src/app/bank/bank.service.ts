@@ -63,6 +63,12 @@ export class BankService {
     });
   }
 
+  public rejectCreditRequest(idBank: number, idCreditRequest: number, description: string|null) {
+    return this.http.patch(`${this.sharedData.baseUrl}bank/${idBank}/credit-request/${idCreditRequest}/reject`, {
+      "description": description
+    });
+  }
+
   public updateCreditRequestFromClient(idBank: number, idCreditRequest: number, rate: number|null, money: number|null, 
     weeklyPayments: number|null, description: string|null, status: string|null
   ): Observable<any> {

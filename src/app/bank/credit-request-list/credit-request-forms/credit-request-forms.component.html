@@ -23,12 +23,22 @@
             <button (click)="generateCommentary()">Génération automatique</button>
         </div>
 
-        <div>
-            <button class="send" (click)="updateCreditRequest('wait on client')">Enregistrer et proposer les modifications au client</button>
-            <p class="explain">
-                Si le client accepte les modifications il pourra directement encaisser l'argent du prêt<br>
-                Cet argent sera retirer de votre coffre et placé sur son compte
-            </p>
+        <hr class="separator">
+
+        <div class="buttons">
+            <div>
+                <button class="send" (click)="updateCreditRequest('wait on client')">Enregistrer et proposer les modifications au client</button>
+                <p class="explain">
+                    Si le client accepte les modifications il pourra directement encaisser l'argent du prêt<br>
+                    Cet argent sera retirer de votre coffre et placé sur son compte
+                </p>
+            </div>
+            <div>
+                <button class="send" (click)="rejectCreditRequest()">Rejeter la demande de prêt</button>
+                <p class="explain">
+                    Vous pouvez ajouter une description pour expliquer la raison du rejet
+                </p>
+            </div>
         </div>
 
         <p class="error">{{ error }}</p>
@@ -56,11 +66,15 @@
             <button (click)="generateCommentary()">Génération automatique</button>
         </div>
 
-        <div>
-            <button class="send" (click)="updateCreditRequestFromClient('wait on bank')">Enregistrer et proposer les modifications à la banque</button>
-            <p class="explain">
-                En cliquant sur ce bouton, votre demande de prêt devra passer par une nouvelle étape de validation de la part de la banque
-            </p>
+        <hr class="separator">
+
+        <div class="buttons">
+            <div>
+                <button class="send" (click)="updateCreditRequestFromClient('wait on bank')">Enregistrer et proposer les modifications à la banque</button>
+                <p class="explain">
+                    En cliquant sur ce bouton, votre demande de prêt devra passer par une nouvelle étape de validation de la part de la banque
+                </p>
+            </div>
         </div>
     }
 </form>
