@@ -23,7 +23,11 @@ export class CreditRequestListComponent {
       case "wait on client":
         return "En attente du client";
       case "reject":
-        return "Rejeté";
+        return "Rejetée par la banque";
+      case "cancel":
+        return "Annulée par le client";
+      case "deleted":
+        return "Supprimée";
       default:
         return "";
     }

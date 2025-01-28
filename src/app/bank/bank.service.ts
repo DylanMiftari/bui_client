@@ -69,6 +69,10 @@ export class BankService {
     });
   }
 
+  public deleteCreditRequest(idBank: number, idCreditRequest: number) {
+    return this.http.delete(`${this.sharedData.baseUrl}bank/${idBank}/credit-request/${idCreditRequest}`, {});
+  }
+
   public updateCreditRequestFromClient(idBank: number, idCreditRequest: number, rate: number|null, money: number|null, 
     weeklyPayments: number|null, description: string|null, status: string|null
   ): Observable<any> {
@@ -79,5 +83,15 @@ export class BankService {
       "description": description,
       "status": status
     });
+  }
+
+  public cancelCreditRequest(idBank: number, idCreditRequest: number, description: string|null) {
+    return this.http.patch(`${this.sharedData.baseUrl}bank/client/${idBank}/credit-request/${idCreditRequest}/cancel`, {
+      "description": description
+    });
+  }
+
+  public deleteCreditRequestFromClient(idBank: number, idCreditRequest: number) {
+    return this.http.delete(`${this.sharedData.baseUrl}bank/client/${idBank}/credit-request/${idCreditRequest}`, {});
   }
 }

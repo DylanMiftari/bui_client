@@ -75,6 +75,18 @@ export class CreditRequestFormsComponent implements OnInit {
     )
   }
 
+  public cancelCreditRequest() {
+    this.bankService.cancelCreditRequest(this.creditRequest.bankId, this.creditRequest.id, this.commentary).subscribe(
+      response => {
+        this.creditRequest.status = "cancel";
+        this.creditRequest.description += ("\n-------------\n"+this.commentary);
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
+  }
+
   public updateCreditRequestFromClient(status: string) {
     this.bankService.updateCreditRequestFromClient(this.creditRequest.bankId, this.creditRequest.id, this.rate, this.money, this.weeklyPayments, 
       this.commentary, status
@@ -85,6 +97,28 @@ export class CreditRequestFormsComponent implements OnInit {
         this.creditRequest.weeklypayment = this.weeklyPayments;
         this.creditRequest.description += ("\n-------------\n"+this.commentary);
         this.creditRequest.status = status;
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
+  }
+
+  public deleteCreditRequest() {
+    this.bankService.deleteCreditRequest(this.creditRequest.bankId, this.creditRequest.id).subscribe(
+      response => {
+        this.creditRequest.status = "deleted";
+      },
+      error => {
+        this.error = this.buiService.extractErrorMessage(error)
+      }
+    )
+  }
+
+  public deleteCreditRequestFromClient() {
+    this.bankService.deleteCreditRequestFromClient(this.creditRequest.bankId, this.creditRequest.id).subscribe(
+      response => {
+        this.creditRequest.status = "deleted";
       },
       error => {
         this.error = this.buiService.extractErrorMessage(error)

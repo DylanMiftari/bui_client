@@ -75,6 +75,25 @@
                     En cliquant sur ce bouton, votre demande de prêt devra passer par une nouvelle étape de validation de la part de la banque
                 </p>
             </div>
+
+            <div>
+                <button class="send" (click)="cancelCreditRequest()">Annuler la demande de prêt</button>
+                <p class="explain">
+                    Vous pouvez ajouter une description afin d'expliquer la raison de votre annulation
+                </p>
+            </div>
+        </div>
+    } @else if(creditRequest.status === "reject" && fromClient) {
+        <div class="buttons">
+            <div>
+                <button class="send" (click)="deleteCreditRequestFromClient()">Supprimer ma demande de prêt</button>
+            </div>
+        </div>
+    } @else if(creditRequest.status === "cancel" && !fromClient) {
+        <div class="buttons">
+            <div>
+                <button class="send" (click)="deleteCreditRequest()">Supprimer la demande de prêt</button>
+            </div>
         </div>
     }
 </form>
